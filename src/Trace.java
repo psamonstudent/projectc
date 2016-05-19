@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 
 public class Trace {
 	
-	String traceFile = "ProjCTrace";
+	String traceFile = "ProjCTrace.txt";
 	PrintWriter traceWriter;
 	
 	public Trace(){
