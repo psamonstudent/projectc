@@ -1,47 +1,57 @@
 import java.util.List;
 
 
-public class TicTacToeTest {
+public class TicTacToeTest extends TicTacToe {
 	
 	private static final int INITIALIZE_TO_ZERO = 0;
 	TicTacToe gameSystem;
 	
-	public TicTacToeTest(TicTacToe gameSystem){
-		
-		this.gameSystem = gameSystem;
-		
-	}
 	
 	public void testGame(){
 		
-		addRandomPlayers(10);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
 		
-		List<Player> alph = gameSystem.playerManager.getAlphabeticArray();
-		List<Player> top = gameSystem.playerManager.getTopTenArray();
+		addRandomPlayers(110);		
 		
-		gameSystem.trace.getTraceWriter().println("ALPHABETIC ARRAY:");
+		printPlayers();
 		
-		for(Player player: alph){
-			
-			gameSystem.trace.getTraceWriter().println(alph.toString());
-			
-		}
+		printTopTen();
 		
-		gameSystem.trace.getTraceWriter().println("\nTOP TEN ARRAY:");
 		
-		for(Player player: top){
-			
-			gameSystem.trace.getTraceWriter().println(top.toString());
-			
-		}
 		
 	}
 	
 	public void addRandomPlayers(int numberOfPlayers){
 		
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
+		
 		for(int index = INITIALIZE_TO_ZERO; index < numberOfPlayers; index++){
 		
-			gameSystem.playerManager.addPlayer(new RandomPlayer());
+			playerManager.addPlayer(new RandomPlayer());
+			
+		}
+		
+	}
+	
+	public void printPlayers(){
+		
+		trace.getTraceWriter().println("ALPHABETIC ARRAY:");
+		
+		for(Player player: playerManager.getAlphabeticArray()){
+			
+			trace.getTraceWriter().println(player.toString());
+			
+		}
+		
+	}
+	
+	public void printTopTen(){
+		
+		trace.getTraceWriter().println("\nTOP TEN ARRAY:");
+		
+		for(Player player: playerManager.getTopTenArray()){
+			
+			trace.getTraceWriter().println(player.toString());
 			
 		}
 		

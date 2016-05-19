@@ -13,12 +13,14 @@ public class PlayerManager {
 	// Constants
 	private static final int INITIALIZE_TO_ZERO = 0;
 	private static final int EQUALS = 0;
+	private static final int MAX_PLAYERS = 100;
+	private static final int PLAYER_DOES_NOT_EXIST = -1;
 	
 	Trace trace;
 	
 	// Player arrays
-	List<Player> alphabeticArray = new ArrayList<Player>();
-	List<Player> topTenArray = new ArrayList<Player>();
+	private List<Player> alphabeticArray = new ArrayList<Player>();
+	private List<Player> topTenArray = new ArrayList<Player>();
 	
 	// saved state file name
 	String saveFile = "saveFile";
@@ -33,8 +35,9 @@ public class PlayerManager {
 	
 
 	// Accessors and mutators
+	// TODO does this copy of the list?
 	public List<Player> getAlphabeticArray() {
-		return alphabeticArray;
+		return new ArrayList<Player>(this.alphabeticArray);	
 	}
 
 
@@ -48,7 +51,7 @@ public class PlayerManager {
 
 
 	public List<Player> getTopTenArray() {
-		return topTenArray;
+		return new ArrayList<Player>(this.topTenArray);
 	}
 
 
@@ -64,7 +67,7 @@ public class PlayerManager {
 	// Output array state to file
 	public void saveStateToFile(){	
 		
-		trace.trace(Thread.currentThread(), null);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
 		
 		// TODO: test
 		try {
@@ -116,7 +119,7 @@ public class PlayerManager {
 	// retrieve state from file
 	public void recoverStateFromFile(){
 		
-		trace.trace(Thread.currentThread(), null);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
 		
 		//TODO: test
 		try {
@@ -180,17 +183,20 @@ public class PlayerManager {
 			
 		}
 		
-
-		
-
-		
 	}
 	
 	
 	// Add player to both arrays
 	public void addPlayer(Player player){
 		
-		trace.trace(Thread.currentThread(), null);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
+		
+		
+		if(alphabeticArray.size() == MAX_PLAYERS){
+			// TODO: print max amount of players
+			return;
+		}
+		
 		
 		if(!addPlayerToAlphabeticArray(player)){
 			
@@ -205,47 +211,111 @@ public class PlayerManager {
 		
 	}
 	
-	
-	// Remove player from both arrays
-	public void removePlayer(Player player){
+	// Remove all players
+	public void removeAllPlayers(){
 		
-		trace.trace(Thread.currentThread(), null);
+		// TODO: y/n check
 		
-		if(!removePlayerFromArray(player, alphabeticArray)){
-			
-			// TODO: print user does not exist
-			return;
-			
-		} else {
-			
-			removePlayerFromArray(player, topTenArray);
-			
-		}
+		alphabeticArray.clear();
+		topTenArray.clear();
 		
 	}
 	
-	// Update player in both arrays
-	public void updatePlayer(Player player){
+	// Remove player from both arrays
+	public void removePlayer(String userName){
 		
-		trace.trace(Thread.currentThread(), null);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
 		
-		if(!updatePlayerInAlphabeticArray(player)){
+		if(!alphabeticArray.remove(userName)){
+			
+			// TODO: print user does not exist
+			return;
+			
+		}
+		
+		topTenArray.remove(userName);
+
+		
+		/*
+		if(!removePlayerFromArray(userName, alphabeticArray)){
 			
 			// TODO: print user does not exist
 			return;
 			
 		} else {
 			
+			removePlayerFromArray(userName, topTenArray);
+			
+		}*/
+		
+	}
+	
+	// Update player stats in both arrays accepts type Player
+	public void updatePlayer(Player player){
+		
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
+		
+		int index = alphabeticArray.indexOf(player);
+		
+		if(index == PLAYER_DOES_NOT_EXIST){
+			
+			// TODO: print user does not exist
+			return;
+			
+		} else {
+			
+			alphabeticArray.set(index, player);
 			updatePlayerInTopTenArray(player);		
 			
 		}
 		
 	}
 	
+	// Update player name in both arrays
+	public void updatePlayer(String userName, String familyName, String givenName){
+		
+		int index = alphabeticArray.indexOf(userName);
+		
+		if(index == PLAYER_DOES_NOT_EXIST){
+			
+			// TODO: print player does not exist
+			return;
+			
+		} else if(alphabeticArray.get(index) instanceof HumanPlayer){
+			
+			HumanPlayer temp = new HumanPlayer(alphabeticArray.get(index));			
+			temp.setFamilyName(familyName);
+			temp.setGivenName(givenName);
+			alphabeticArray.set(index, temp);
+			topTenArray.set(index, temp);
+			
+		} else {
+			
+			AIPlayer temp = new AIPlayer(alphabeticArray.get(index));
+			temp.setFamilyName(familyName);
+			temp.setGivenName(givenName);
+			alphabeticArray.set(index, temp);
+			topTenArray.set(index, temp);
+			
+		}	
+		
+	}
+	
+	// Reset stats
+	public void resetStats(String userName){
+		
+		//TODO: finish method & create resetAll stats method
+		
+		alphabeticArray.indexOf(userName);
+		
+	}
+	
+	
+	
 	// Add player to alphabetic array. If userName exists return false;
 	private boolean addPlayerToAlphabeticArray(Player player){
 		
-		trace.trace(Thread.currentThread(), null);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
 		
 		for(int index = INITIALIZE_TO_ZERO; index < alphabeticArray.size(); index++){
 			
@@ -270,17 +340,17 @@ public class PlayerManager {
 	// Add player to top ten array. 
 	private void addPlayerToTopTenArray(Player player){
 		
-		trace.trace(Thread.currentThread(), null);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
 		
 		for(int index = INITIALIZE_TO_ZERO; index < topTenArray.size(); index++){
 			
-			if(player.getWinningRatio() < topTenArray.get(index).getWinningRatio()){
+			if(player.getWinningRatio() > topTenArray.get(index).getWinningRatio()){
 				
 				topTenArray.add(index, player);
 				return;
 				
 			} else if(player.getWinningRatio() == topTenArray.get(index).getWinningRatio() &&
-					player.getDrawingRatio() < topTenArray.get(index).getDrawingRatio()){
+					player.getDrawingRatio() > topTenArray.get(index).getDrawingRatio()){
 				
 				topTenArray.add(index, player);
 				return;
@@ -300,61 +370,17 @@ public class PlayerManager {
 		
 	}
 	
-	// Remove player from array. If userName does not exist return false;
-	private boolean removePlayerFromArray(Player player, List<Player> list){
-		
-		trace.trace(Thread.currentThread(), null);
-		
-		for(int index = INITIALIZE_TO_ZERO; index < list.size(); index++){
-			
-			if(player.getUserName().compareToIgnoreCase(list.get(index).getUserName()) == EQUALS){
-				
-				list.remove(index);
-				return true;
-				
-			}
-			
-		}
-		
-		return false;
-		
-	}
-	
-	
-	// Update player in alphabetic array. If userName exists return false;
-	private boolean updatePlayerInAlphabeticArray(Player player){
-		
-		trace.trace(Thread.currentThread(), null);
-		
-		// TODO
-		
-		for(int index = INITIALIZE_TO_ZERO; index < alphabeticArray.size(); index++){
-				
-			if(player.getUserName().compareToIgnoreCase(alphabeticArray.get(index).getUserName()) == EQUALS){
-				
-				alphabeticArray.set(index, player);
-				return true;
-				
-			}
-			
-		}
-		
-		return false;
-		
-	}
-	
 	// Update player in top ten array. 
 	private void updatePlayerInTopTenArray(Player player){
 		
-		trace.trace(Thread.currentThread(), null);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
 		
 		// TODO
 		
-		removePlayerFromArray(player, topTenArray);
+		topTenArray.remove(player);
 		addPlayerToTopTenArray(player);
 		
 	}
-	
 
 	
 }

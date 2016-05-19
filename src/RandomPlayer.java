@@ -9,7 +9,13 @@ public class RandomPlayer extends Player{
 	private static final int MIN_GAMES = 0;
 	private static final int MAX_GAMES = 99;
 	private static final int INITIALIZE_TO_ZERO = 0;
-
+	
+	// Copy constructor
+	public RandomPlayer(Player player) {
+		super(player);
+	}
+	
+	// Contructor give instance variables random values
 	public RandomPlayer() {
 		
 		userName = randomName();
@@ -21,6 +27,8 @@ public class RandomPlayer extends Player{
 		updateRatios();
 		
 	}
+	
+
 	
 	// Create random name
 	public String randomName(){

@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 
 public class Trace {
 	
-	String traceFile = "ProjCTrace.txt";
+	String traceFile = "/root/git/projectc/ProjCTrace.txt";
 	PrintWriter traceWriter;
 	
 	public Trace(){
@@ -25,8 +25,6 @@ public class Trace {
 	}
 	
 	
-		
-	
 	public PrintWriter getTraceWriter() {
 		return traceWriter;
 	}
@@ -38,14 +36,8 @@ public class Trace {
 		this.traceWriter = traceWriter;
 	}
 
-
-
-
-	public void trace(Thread thread, String info){
-		
-		String className = thread.getStackTrace()[1].getClassName();
-		String methodName = thread.getStackTrace()[1].getMethodName();
-		int lineNumber = thread.getStackTrace()[1].getLineNumber();
+	
+	public void traceToFile(String className, String methodName, int lineNumber, String info){
 		
 		if(info == null){
 			

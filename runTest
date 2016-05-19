@@ -1,0 +1,5 @@
+#!/bin/sh
+set -x #echo on
+cd src
+javac *.java
+java TicTacToe

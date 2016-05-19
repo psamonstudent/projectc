@@ -1,0 +1,8 @@
+
+
+	System for importing state
+		Player arrays
+		Game state
+	System for exporting state
+		Player arrays
+		Game state
