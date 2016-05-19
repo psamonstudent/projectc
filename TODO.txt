@@ -1,8 +1,15 @@
 
-
+	CHECKLIST
+	
+	
 	System for importing state
 		Player arrays
 		Game state
+		
 	System for exporting state
 		Player arrays
 		Game state
+	
+	Exception handling
+		"Invalid move. The cell has been occupied."
+		"Invalid move. You must place a cell within {0
