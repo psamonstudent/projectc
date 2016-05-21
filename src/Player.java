@@ -15,8 +15,12 @@ public abstract class Player {
 	protected int gamesPlayed;
 	protected int gamesWon;
 	protected int gamesDrawn;
+	protected char symbol;
 	private float winningRatio;
 	private float drawingRatio;
+	
+	// Create move object
+	Move move;
 	
 	// Copy constructor
 	public Player(Player player) {
@@ -30,6 +34,7 @@ public abstract class Player {
 		this.drawingRatio = player.drawingRatio;
 	}
 	
+	// New player constructor
 	public Player(String userName, String familyName, String givenName) {
 		
 		this.userName = userName;
@@ -42,7 +47,7 @@ public abstract class Player {
 		
 	}
 	
-
+	// No argument constructor
 	public Player() {
 		
 		userName = INITIALIZE_TO_NULL;
@@ -92,6 +97,12 @@ public abstract class Player {
 	public void setGamesDrawn(int gamesDrawn) {
 		this.gamesDrawn = gamesDrawn;
 	}
+	public char getSymbol() {
+		return symbol;
+	}
+	public void setSymbol(char symbol) {
+		this.symbol = symbol;
+	}
 	public float getDrawingRatio() {
 		return drawingRatio;
 	}
@@ -104,6 +115,13 @@ public abstract class Player {
 	public void setWinningRatio(float winningRatio) {
 		this.winningRatio = winningRatio;
 	} 
+	public Move getMove(){
+		return this.move;
+	}
+	public void setMove(Move move){
+		this.move = move;
+	}
+	
 	
 	// Caclulate winningRatio and drawingRatio
 	public void updateRatios(){
@@ -121,6 +139,7 @@ public abstract class Player {
 		
 	}
 	
+	
 	// Reset stats
 	public void resetStats() {
 		
@@ -130,6 +149,7 @@ public abstract class Player {
 		updateRatios();
 		
 	}
+	
 	
 	@Override
 	public boolean equals(Object obj) {
