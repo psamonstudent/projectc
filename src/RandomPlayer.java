@@ -11,13 +11,13 @@ public class RandomPlayer extends Player{
 	private static final int INITIALIZE_TO_ZERO = 0;
 	
 	// Copy constructor
-	public RandomPlayer(Player player) {
-		super(player);
+	public RandomPlayer(Player player, Trace trace) {
+		super(player, trace);
 	}
 	
 	// Contructor give instance variables random values
-	public RandomPlayer() {
-		
+	public RandomPlayer(Trace trace) {
+		super(trace);
 		userName = randomName();
 		familyName = randomName();
 		givenName = randomName();

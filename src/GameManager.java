@@ -19,7 +19,6 @@ public class GameManager {
 	public static final int DRAW = 0;	
 	public static final int WIN = 1;
 	public static final int LOSS = -1;
-	public static final int CHANGE_PLAYER = -1;
 	public static final int MOD_ODD_EVEN = 2;
 	
 	
@@ -32,11 +31,12 @@ public class GameManager {
 	public static final int LAST_ROW = 2;
 	public static final int LAST_COL = 2;
 	public static final int SUM_ROW_COL_FOR_ANTI_DIAGONAL = 2;
+	private static final int CONVERT_TO_PLAYER_TWO_STATE = -1;
 
 	Move move;
 	Scanner scanner;
 	Trace trace;
-	private char[][] grid = new char[GRID_SIZE][GRID_SIZE];
+	private GameBoard gameBoard;
 	private Player[] player = new Player[NUMBER_OF_PLAYERS];
 	private int playerNumber;
 	private int numberOfLoops;
@@ -58,73 +58,96 @@ public class GameManager {
 		return player[PLAYER_TWO_INDEX];
 	}
 	
+	
 	public void playGame(Player playerOne, Player playerTwo){
 		
-		player[PLAYER_ONE_INDEX] = playerOne;
-		player[PLAYER_TWO_INDEX] = playerTwo;
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
+		
+		
+		gameBoard = new GameBoard();
+		
+		if(playerOne instanceof AIPlayer){
+			
+			player[PLAYER_ONE_INDEX] = new AIPlayer(playerOne, trace, gameBoard);
+			
+		} else {
+			
+			player[PLAYER_ONE_INDEX] = new HumanPlayer(playerOne, trace, scanner, gameBoard);
+			
+		}
+		
+		if(playerTwo instanceof AIPlayer){
+			
+			player[PLAYER_TWO_INDEX] = new AIPlayer(playerTwo, trace, gameBoard);
+			
+		} else {
+			
+			player[PLAYER_TWO_INDEX] = new HumanPlayer(playerTwo, trace, scanner, gameBoard);
+			
+		}
+		
 		player[PLAYER_ONE_INDEX].setSymbol(PLAYER_ONE_SYMBOL);
 		player[PLAYER_TWO_INDEX].setSymbol(PLAYER_TWO_SYMBOL);
 		
-		initializeGrid();
-		
-		printGrid();
+		gameBoard.printGrid();
 		
 		loopThroughGame();
 		
-		int playerTwoState = playerOneState * CHANGE_PLAYER;
+		switch (playerOneState){
 		
-		updatePlayer(playerOne, playerOneState);
-		updatePlayer(playerTwo, playerTwoState);
+		case WIN:
+			
+			System.out.println("Game over. " + player[PLAYER_ONE_INDEX].getGivenName() + " won!");
+			break;
+			
+		case DRAW:
+			
+			System.out.println("Game over. It was a draw!");
+			break;
+			
+		case LOSS:
+			
+			System.out.println("Game over. " + player[PLAYER_TWO_INDEX].getGivenName() + " won!");
+			break;
 		
+		}
+		
+		int playerTwoState = playerOneState * CONVERT_TO_PLAYER_TWO_STATE;
+		
+		updatePlayer(player[PLAYER_ONE_INDEX], playerOneState);
+		updatePlayer(player[PLAYER_TWO_INDEX], playerTwoState);
+		
+		trace.getTraceWriter().println("playerOne = "  + player[PLAYER_ONE_INDEX].toString());
+		trace.getTraceWriter().println("playerOne = "  + player[PLAYER_TWO_INDEX].toString());
 	}
+	
 	
 	/* Comment: 		Loop through each move of the game
 	*  Precondition: 	Player names are already set
 	*  Postcondition: 	Game is finished */
 	private void loopThroughGame(){
 		
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
+		
+		
 		// Local Variables
 		int numberOfMoves = INITIALIZE_TO_ZERO;		
 		numberOfLoops = INITIALIZE_TO_ZERO;
-		boolean invalidEntry = false;
 		
 		// While game is not over, loop through game
 		while(playerOneState == CONTINUE){
 			
 			// Alternate between player 1 and 2
+			trace.getTraceWriter().println("number of moves = " + numberOfMoves);
 			playerNumber = (numberOfMoves++) % MOD_ODD_EVEN;
 			
-			// Read player input, if invalid: print error and repeat
-			do{
-				
-				// Print players move
-				System.out.print(player[playerNumber].getGivenName() + "'s move:\n");
-				
-				// Read players cell entry
-				player[playerNumber].makeMove();
-				
-					
-				// Cell already occupied?
-				if(grid[player[playerNumber].getMove().getRow()][player[playerNumber].getMove().getCol()] != EMPTY_CELL){
-					
-					invalidEntry = true;
-					
-					// Print error info
-					System.out.print("Invalid move. The cell has been occupied.\n");
-					
-				} else {
-	
-					// No error then entry is valid
-					invalidEntry = false;
-				}
-				
-			} while (invalidEntry);
+			trace.getTraceWriter().println("playerNumber = " + playerNumber);
+			trace.getTraceWriter().println("player is = " + player[playerNumber].getUserName());
 			
-			// Place player's move onto the grid
-			setGrid(player[playerNumber].getMove().getRow(), player[playerNumber].getMove().getCol());
+			player[playerNumber].makeMove();
 			
 			// Print grid
-			printGrid();
+			gameBoard.printGrid();
 			
 			// Get game state
 			playerOneState = getGameState();
@@ -141,7 +164,10 @@ public class GameManager {
 	*  Postcondition: 	Current state of the game is returned */	
 	private int getGameState(){
 		
-		// If the maximum amount of turns has been taken the game is a draw
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
+		
+		
+		// If the maximum amount of turns has been taken, the game is a draw
 		if(numberOfLoops == MAX_TURNS && checkWin() == CONTINUE)
 			
 			return DRAW;
@@ -168,9 +194,10 @@ public class GameManager {
 	*  Postcondition: 	Passes game state */
 	private int checkWin(){
 		
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
+		
+		
 		//Local variables
-		int row;
-		int col;
 		int numberOfIterations = INITIALIZE_TO_ZERO;
 		boolean keepGoing = false;
 			
@@ -222,7 +249,7 @@ public class GameManager {
 				
 				/*If player occupies the cell next to their last move (last cell checked)
 				* keepGoing = true. */
-				if(grid[row][col] == player[playerNumber].getSymbol()){
+				if(gameBoard.checkGrid(row, col) == player[playerNumber].getSymbol()){
 					
 					keepGoing = true;
 					
@@ -240,11 +267,11 @@ public class GameManager {
 			* exit method. */
 			if (keepGoing && (playerNumber == PLAYER_ONE_INDEX)){
 				
-				return PLAYER_ONE_WIN;
+				return WIN;
 				
 			} else if(keepGoing){
 				
-				return PLAYER_TWO_WIN;
+				return LOSS;
 				
 			}
 			
@@ -259,6 +286,9 @@ public class GameManager {
 
 	// Update player scores
 	private void updatePlayer(Player player, int result) {
+		
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
+		
 		
 		player.setGamesPlayed(player.getGamesPlayed() + 1);
 		
@@ -280,65 +310,7 @@ public class GameManager {
 		
 		}
 		
-	}
-
-	/* Comment: 		Initialize grid array to the space character
-	*  Precondition: 	char grid[][] has been declared
-	*  Postcondition: 	All elements of grid[][] have the char value: ' ' */
-	private void initializeGrid(){
-		
-		for(int row = INITIALIZE_TO_ZERO; row < GRID_SIZE; row++){		
-		
-			for(int col = INITIALIZE_TO_ZERO; col < GRID_SIZE; col++){
-				
-				//Initialize cell to space character
-				grid[row][col] = EMPTY_CELL;
-				
-			}
-			
-		}	
-		
-	}
-	
-	/* Comment: 		Prints grid
-	*  Precondition: 	Grid array values are valid (' ', 'O', 'X')
-	*  Postcondition: 	Grid is printed to screen with borders and values of cells */
-	private void printGrid(){
-		
-		//Iterate through each row
-		for(int row = INITIALIZE_TO_ZERO; row < GRID_SIZE; row++){			
-		
-			//Iterate through each column
-			for(int col = INITIALIZE_TO_ZERO; col < GRID_SIZE; col++){
-				
-				//Print cell value
-				System.out.print(grid[row][col]);
-				
-				//If column 0 or 1 Print vertical line
-				if(col < LAST_COL)
-					
-					System.out.print("|");
-					
-			}
-			
-			//If row 0 or 1 Print horizontal line
-			if(row < LAST_ROW)
-				
-				System.out.print("\n-----\n");
-		}
-		
-		//Print newline at end of grid
-		System.out.print("\n");
-		
-	}
-	
-	/* Comment: 		Set players move in corresponding cell
-	*  Precondition: 	Arguments passed (row and col) are valid {0,1,2}
-	*  Postcondition: 	Players symbol is written to the relevant cell in 3D array */
-	private void setGrid(int row, int col){
-		
-		// Set cell symbol for player
-		grid[row][col] = player[playerNumber].getSymbol();
+		player.updateRatios();
 		
 	}
 

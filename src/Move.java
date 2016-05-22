@@ -5,6 +5,12 @@ public class Move {
 	private int row;
 	private int col;
 	
+	// Constructor
+	public Move(int row, int col){
+		this.row = row;
+		this.col = col;
+	}
+	
 	// Accessors and Mutators
 	public int getRow() {
 		return row;

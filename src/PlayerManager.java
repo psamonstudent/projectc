@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class PlayerManager {
@@ -17,10 +18,11 @@ public class PlayerManager {
 	private static final int PLAYER_DOES_NOT_EXIST = -1;
 	private static final int TENTH_PLAYER = 9;
 	private static final int NUMBER_OF_TOP_TEN_PLAYERS = 10;
-	private static final int WIN = 2;
-	private static final int DRAW = 1;
+	private static final String YES = "y";
+	private static final String NO = "n";
 	
 	Trace trace;
+	Scanner scanner;
 	
 	// Player arrays
 	private List<Player> playerArray = new ArrayList<Player>();
@@ -29,9 +31,10 @@ public class PlayerManager {
 	String saveFile = "saveFile";
 	
 	// Constructor
-	public PlayerManager(Trace trace) {
+	public PlayerManager(Scanner scanner,Trace trace) {
 		
 		this.trace = trace;
+		this.scanner = scanner;
 		
 	}
 	
@@ -47,7 +50,7 @@ public class PlayerManager {
 	// Output array state to file
 	public void saveStateToFile(){	
 		
-		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
 		
 		// TODO: test
 		try {
@@ -87,7 +90,7 @@ public class PlayerManager {
 	// retrieve state from file
 	public void recoverStateFromFile(){
 		
-		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
 		
 		//TODO: test
 		try {
@@ -134,18 +137,18 @@ public class PlayerManager {
 	// Add player to both arrays
 	public void addPlayer(Player player){
 		
-		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
 		
 		
 		if(playerArray.size() == MAX_PLAYERS){
-			// TODO: print max amount of players
+			System.out.println("Maximum amount of players.");
 			return;
 		}
 		
 		
-		if(!addPlayerToplayerArray(player)){
+		if(!addPlayerToPlayerArray(player)){
 			
-			// TODO: print user already exists
+			System.out.println("The username has already been used.");
 			return;
 			
 		}
@@ -155,74 +158,75 @@ public class PlayerManager {
 	// Remove all players
 	public void removeAllPlayers(){
 		
-		// TODO: y/n check
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
 		
-		playerArray.clear();
+		// Prompt user for confirmation
+		System.out.print("Are you sure you want to remove all players? (y/n)\n");
+			
+		// Get user response
+		String response = scanner.nextLine();
+			
+		// If yes
+		if(response.equals(YES)){
+					
+			playerArray.clear();
+			return;
+				
+		// If no, exit
+		} else if(response.equals(NO)){
+					
+			return;
+					
+		} else {
+					
+			System.out.print("Incorrect response. Response does not match: y or n.");
 		
+		}
+
 	}
 	
 	// Remove player from both arrays
 	public void removePlayer(String userName){
 		
-		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
 		
-		if(!playerArray.remove(userName)){
+		int index = indexOf(userName);
+		
+		if(index == PLAYER_DOES_NOT_EXIST){
 			
-			// TODO: print user does not exist
+			System.out.println("The player does not exist.");
 			return;
 			
 		}
 		
+		playerArray.remove(index);
+		
 	}
-	
-/*	// Update player stats
-	public void updatePlayer(int index, int result){
-		
-		Player player = playerArray.get(index);
-		
-		player.setGamesPlayed(player.getGamesPlayed() + 1);
-		
-		switch (result){
-		
-		case WIN: 
-			
-			player.setGamesWon(player.getGamesWon() + 1);
-			break;
-			
-		case DRAW:
-			
-			player.setGamesDrawn(player.getGamesDrawn() + 1);
-			break;
-			
-		default:
-			
-			break;
-			
-		}
-			
-	}*/
 	
 	
 	// Update player name in both arrays
 	public void editPlayer(String userName, String familyName, String givenName){
 		
-		int index = playerArray.indexOf(userName);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
+		
+		
+		int index = indexOf(userName);
 		
 		if(index == PLAYER_DOES_NOT_EXIST){
 			
-			// TODO: print player does not exist
+			System.out.println("The player does not exist.");
 			return;
 			
 		} else if(playerArray.get(index) instanceof HumanPlayer){
 			
-			HumanPlayer temp = new HumanPlayer(playerArray.get(index));			
+			HumanPlayer temp = new HumanPlayer(playerArray.get(index), trace, scanner);			
 			temp.setFamilyName(familyName);
 			temp.setGivenName(givenName);
 			playerArray.set(index, temp);
 			
 		} else {
 			
-			AIPlayer temp = new AIPlayer(playerArray.get(index));
+			AIPlayer temp = new AIPlayer(playerArray.get(index), trace);
 			temp.setFamilyName(familyName);
 			temp.setGivenName(givenName);
 			playerArray.set(index, temp);
@@ -234,13 +238,16 @@ public class PlayerManager {
 	// Reset stats
 	public void resetStats(String userName){
 		
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
+		
+		
 		//TODO: finish method & create resetAll stats method
 		
-		int index = playerArray.indexOf(userName);
+		int index = indexOf(userName);
 		
 		if(index == PLAYER_DOES_NOT_EXIST){
 			
-			//TODO: invalid input statement
+			System.out.println("The player does not exist.");
 			return;
 			
 		}
@@ -257,15 +264,38 @@ public class PlayerManager {
 	// Reset all stats
 	public void resetStats(){
 		
-		// TODO: are you sure?
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
 		
-		for(Player player: playerArray){
+		
+		// Prompt user for confirmation
+		System.out.print("Are you sure you want to reset all player statistics? (y/n)\n");
 			
-			player.setGamesPlayed(INITIALIZE_TO_ZERO);
-			player.setGamesWon(INITIALIZE_TO_ZERO);
-			player.setGamesDrawn(INITIALIZE_TO_ZERO);
-			player.updateRatios();
+		// Get user response
+		String response = scanner.nextLine();
 			
+		// If yes
+		if(response.equals(YES)){
+					
+			for(Player player: playerArray){
+				
+				player.setGamesPlayed(INITIALIZE_TO_ZERO);
+				player.setGamesWon(INITIALIZE_TO_ZERO);
+				player.setGamesDrawn(INITIALIZE_TO_ZERO);
+				player.updateRatios();
+				
+			}
+			
+			return;
+				
+		// If no, exit
+		} else if(response.equals(NO)){
+					
+			return;
+					
+		} else {
+					
+			System.out.print("Incorrect response. Response does not match: y or n.");
+		
 		}
 		
 	}
@@ -273,7 +303,13 @@ public class PlayerManager {
 	// Display player
 	public void displayPlayer(String userName){
 		
-		int index = playerArray.indexOf(userName);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
+		
+		trace.getTraceWriter().println("userName = " + userName);
+		
+		int index = indexOf(userName);
+		
+		trace.getTraceWriter().println("index = " + index);
 		
 		if(index == PLAYER_DOES_NOT_EXIST){
 			
@@ -282,7 +318,7 @@ public class PlayerManager {
 			
 		}
 		
-		System.out.print(playerArray.get(index).getUserName() + "," + playerArray.get(index).getFamilyName() + "," + playerArray.get(index).getGivenName());
+		System.out.print(playerArray.get(index).getUserName() + "," + playerArray.get(index).getFamilyName() + "," + playerArray.get(index).getGivenName() + ",");
 		System.out.print(playerArray.get(index).getGamesPlayed() + " games," + playerArray.get(index).getGamesWon() + " wins," + playerArray.get(index).getGamesDrawn() + " draws\n");
 		
 	}
@@ -290,9 +326,12 @@ public class PlayerManager {
 	// Display all players
 	public void displayAllPlayers(){
 		
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
+		
+		
 		for(Player player: playerArray){
 			
-			System.out.print(player.getUserName() + "," + player.getFamilyName() + "," + player.getGivenName());
+			System.out.print(player.getUserName() + "," + player.getFamilyName() + "," + player.getGivenName() + ",");
 			System.out.print(player.getGamesPlayed() + " games," + player.getGamesWon() + " wins," + player.getGamesDrawn() + " draws\n");
 			
 		}
@@ -302,16 +341,45 @@ public class PlayerManager {
 	// Display rankings
 	public void displayRanking(){
 		
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
+		
+		
 		Player[] topTen = new Player[10];
 		
+		for(Player top: topTen){
+			
+			top = null;
+			
+		}
+		
 		for(Player player: playerArray){
+			
+			trace.getTraceWriter().print("player.getWinningRatio() = " + player.getWinningRatio() + ", last player = ");
+			
+			if(topTen[TENTH_PLAYER] == null){
+				
+				trace.getTraceWriter().println("null");
+				
+			} else {
+				
+				trace.getTraceWriter().println(topTen[TENTH_PLAYER].getWinningRatio());
+				
+			}
+			trace.getTraceWriter().flush();
 			
 			if(topTen[TENTH_PLAYER] == null || topTen[TENTH_PLAYER].getWinningRatio() <= player.getWinningRatio()){
 				
 				// Add player to top ten
 				for(int index = INITIALIZE_TO_ZERO; index < NUMBER_OF_TOP_TEN_PLAYERS; index++){
 					
-					if(player.getWinningRatio() > topTen[index].getWinningRatio() || 
+					trace.getTraceWriter().println("player.getWinningRatio() = " + player.getWinningRatio());
+					
+					if(topTen[index] == null){
+						
+						topTen[index] = player;
+						break;
+						
+					} else if(player.getWinningRatio() > topTen[index].getWinningRatio() || 
 							(player.getWinningRatio() == topTen[index].getWinningRatio() &&
 							player.getDrawingRatio() > topTen[index].getDrawingRatio()) ||
 							(player.getWinningRatio() == topTen[index].getWinningRatio() &&
@@ -325,6 +393,7 @@ public class PlayerManager {
 						}
 						
 						topTen[index] = player;
+						break;
 						
 					}
 					
@@ -354,13 +423,11 @@ public class PlayerManager {
 	}
 	
 	
-	
-	
-	
+
 	// Add player to alphabetic array. If userName exists return false;
-	private boolean addPlayerToplayerArray(Player player){
+	private boolean addPlayerToPlayerArray(Player player){
 		
-		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
 		
 		for(int index = INITIALIZE_TO_ZERO; index < playerArray.size(); index++){
 			
@@ -379,6 +446,38 @@ public class PlayerManager {
 		
 		playerArray.add(player);
 		return true;
+		
+	}
+	
+	public void updatePlayer(int index, Player player){
+		
+		if(player instanceof HumanPlayer){
+			
+			playerArray.set(index, new HumanPlayer(player, trace, scanner));
+			
+		} else {
+			
+			playerArray.set(index, new AIPlayer(player, trace));
+			
+		}
+		
+	}
+	
+	public int indexOf(Object obj){
+		
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
+		
+		for(int index = INITIALIZE_TO_ZERO; index < playerArray.size(); index++){
+			
+			if(playerArray.get(index).equals(obj)){
+				
+				return index;
+				
+			}
+			
+		}
+		
+		return PLAYER_DOES_NOT_EXIST;
 		
 	}
 

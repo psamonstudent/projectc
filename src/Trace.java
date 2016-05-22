@@ -6,8 +6,10 @@ import java.io.PrintWriter;
 
 public class Trace {
 	
-	String traceFile = "/root/git/projectc/ProjCTrace.txt";
-	PrintWriter traceWriter;
+	private String traceFile = "/root/git/projectc/ProjCTrace.txt";
+	private PrintWriter traceWriter;
+	private String className;
+	private String methodName;
 	
 	public Trace(){
 		
@@ -37,16 +39,34 @@ public class Trace {
 	}
 
 	
-	public void traceToFile(String className, String methodName, int lineNumber, String info){
+
+	
+	public void traceToFile(String className, String methodName, int lineNumber){
 		
-		if(info == null){
-			
-			traceWriter.println("Trace: " + className + ":" + methodName + ":" + lineNumber + ".");
-			return;
-			
-		}
+		traceWriter.flush();
 		
-		traceWriter.println("Trace: " + className + ":" + methodName + ":" + lineNumber + ":" + info + ".");
+		this.className = className;
+		this.methodName = methodName;
+		
+		traceWriter.println("Trace: " + className + ": " + methodName + ": " + lineNumber + ":");
+		
+		traceWriter.flush();
+		
+	}
+	
+	public void info(String text){
+		
+		traceWriter.println(text);
+		
+		traceWriter.flush();
+		
+	}
+	
+	public void info(String text, Object obj){
+		
+		traceWriter.print("		" + text + obj.toString() + "\n");
+		
+		traceWriter.flush();
 		
 	}
 	

@@ -1,11 +1,15 @@
+import java.util.Scanner;
+
 
 public abstract class Player {
 	
 	// Constants
 	private static final int PERCENTAGE_MULTIPLIER = 100;
-	private static final int INITIALIZE_TO_ZERO = 0;
+	protected static final int INITIALIZE_TO_ZERO = 0;
 	private static final int NO_GAMES_PLAYED = 0;
+	protected static final char EMPTY_CELL = ' ';
 	private static final String INITIALIZE_TO_NULL = null;
+	protected static final int NUMBER_OF_CELLS = 9;
 	
 	
 	// Instance variables
@@ -20,10 +24,12 @@ public abstract class Player {
 	private float drawingRatio;
 	
 	// Create move object
-	Move move;
+	protected Move move;
+	protected Trace trace;
+	protected GameBoard gameBoard;
 	
-	// Copy constructor
-	public Player(Player player) {
+	// Copy constructor #1
+	public Player(Player player, Trace trace, GameBoard gameBoard) {
 		this.userName = player.userName;
 		this.familyName = player.familyName;
 		this.givenName = player.givenName;
@@ -32,10 +38,25 @@ public abstract class Player {
 		this.gamesDrawn = player.gamesDrawn;
 		this.winningRatio = player.winningRatio;
 		this.drawingRatio = player.drawingRatio;
+		this.trace = trace;
+		this.gameBoard = gameBoard;
+	}
+	
+	// Copy constructor #2
+	public Player(Player player, Trace trace) {
+		this.userName = player.userName;
+		this.familyName = player.familyName;
+		this.givenName = player.givenName;
+		this.gamesPlayed = player.gamesPlayed;
+		this.gamesWon = player.gamesWon;
+		this.gamesDrawn = player.gamesDrawn;
+		this.winningRatio = player.winningRatio;
+		this.drawingRatio = player.drawingRatio;
+		this.trace = trace;
 	}
 	
 	// New player constructor
-	public Player(String userName, String familyName, String givenName) {
+	public Player(String userName, String familyName, String givenName, Trace trace) {
 		
 		this.userName = userName;
 		this.familyName = familyName;
@@ -44,11 +65,12 @@ public abstract class Player {
 		gamesWon = INITIALIZE_TO_ZERO;
 		gamesDrawn = INITIALIZE_TO_ZERO;
 		updateRatios();
+		this.trace = trace;
 		
 	}
 	
 	// No argument constructor
-	public Player() {
+	public Player(Trace trace) {
 		
 		userName = INITIALIZE_TO_NULL;
 		familyName = INITIALIZE_TO_NULL;
@@ -57,6 +79,7 @@ public abstract class Player {
 		gamesWon = INITIALIZE_TO_ZERO;
 		gamesDrawn = INITIALIZE_TO_ZERO;
 		updateRatios();
+		this.trace = trace;
 		
 	}
 
@@ -154,6 +177,10 @@ public abstract class Player {
 	@Override
 	public boolean equals(Object obj) {
 		
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
+		
+		
+		
 		if(obj == null){
 			
 			return false;
@@ -161,7 +188,12 @@ public abstract class Player {
 		} else if(obj instanceof String){
 			
 			String other = (String) obj;	
-			return this.userName.equals(other);
+			trace.getTraceWriter().println("size of string = " + other.length());
+			trace.getTraceWriter().print(other + "....\n");
+			trace.getTraceWriter().print("player = " + userName + ", string argument = " + other);
+			boolean result = userName.equals(other);
+			trace.getTraceWriter().println(", result = " + result);
+			return result;
 		
 		} else if(getClass() != obj.getClass()){
 			
@@ -170,6 +202,7 @@ public abstract class Player {
 		} else {
 			
 			Player other = (Player) obj;
+			trace.getTraceWriter().println("player = " + userName + ", player argument = " + other.getUserName());
 			return this.userName.equals(other.getUserName());
 			
 		}

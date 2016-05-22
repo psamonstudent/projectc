@@ -9,13 +9,15 @@ public class TicTacToeTest extends TicTacToe {
 	
 	public void testGame(){
 		
-		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
 		
-		addRandomPlayers(110);		
+		//addRandomPlayers(97);		
 		
-		printPlayers();
+		//printPlayers();
 		
-		printTopTen();
+		run();
+		
+		
 		
 		
 		
@@ -23,11 +25,11 @@ public class TicTacToeTest extends TicTacToe {
 	
 	public void addRandomPlayers(int numberOfPlayers){
 		
-		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber(), null);
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
 		
 		for(int index = INITIALIZE_TO_ZERO; index < numberOfPlayers; index++){
 		
-			playerManager.addPlayer(new RandomPlayer());
+			playerManager.addPlayer(new RandomPlayer(trace));
 			
 		}
 		
@@ -37,19 +39,7 @@ public class TicTacToeTest extends TicTacToe {
 		
 		trace.getTraceWriter().println("ALPHABETIC ARRAY:");
 		
-		for(Player player: playerManager.getAlphabeticArray()){
-			
-			trace.getTraceWriter().println(player.toString());
-			
-		}
-		
-	}
-	
-	public void printTopTen(){
-		
-		trace.getTraceWriter().println("\nTOP TEN ARRAY:");
-		
-		for(Player player: playerManager.getTopTenArray()){
+		for(Player player: playerManager.getPlayerArray()){
 			
 			trace.getTraceWriter().println(player.toString());
 			

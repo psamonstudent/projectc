@@ -29,6 +29,9 @@ public class TicTacToe {
 	private static final int DISPLAY_ALL_PLAYERS_NUMBER_ARGS = 1;
 	private static final int DISPLAY_PLAYER_NUMBER_ARGS = 2;
 	private static final int PLAYER_DOES_NOT_EXIST = -1;
+	private static final int PLAY_GAME_NUMBER_ARGS = 3;
+	private static final int NO_INPUT = 0;
+	private static final int ONE_ARGUMENT = 2;
 	
 	// Create Scanner object to read from System.in
 	public static Scanner scanner = new Scanner(System.in);
@@ -38,13 +41,14 @@ public class TicTacToe {
 	
 	// Create PlayerManager object to handle player management. 
 	// Pass trace object to constructor to enable tracing
-	PlayerManager playerManager = new PlayerManager(trace);
+	PlayerManager playerManager = new PlayerManager(scanner, trace);
 	
 	// Create GameManager object to handle gameplay. 
 	// Pass scanner object to enable reading from System.in
 	// Pass trace object to constructor to enable tracing
 	// Pass playerManager object to enable player access
 	GameManager gameManager = new GameManager(scanner, trace, playerManager);
+	
 	
 	/* Comment: 		Welcome players and process input
 	*  Precondition: 	NA
@@ -57,20 +61,25 @@ public class TicTacToe {
 			
 	}
 	
+	
 	/* Comment: 		Prompt user for input and process commands
 	*  Precondition: 	Game has started
 	*  Postcondition: 	exit command has not been issued */
 	public void processUserInput(){
 		
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
+		
+		
 		// While exit command has not been issued, keep playing
 		while(true){
+			
+			
 			
 			// Check validity of command and run
 			if(checkCommand())
 				
 				// New command prompt
 				System.out.print("\n>");
-
 
 		}
 		
@@ -81,34 +90,46 @@ public class TicTacToe {
 	*  Postcondition: 	Returns true if command is valid, false if invalid. */
 	public boolean checkCommand(){
 		
-		List<String> userArguments = new ArrayList<String>();
-	
-		// Read next line of user input
-		String userInput = scanner.nextLine();
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
 		
-		// Create new scanner to read userInput string and use the delimiters " " & ","
-		Scanner scanInput = new Scanner(userInput).useDelimiter(" |,");
+		MyScanner myScanner; 
 		
-		// If no input, return invalid command
-		if(!scanInput.hasNext()){
+		// If no input return false
+		if(!scanner.hasNextLine()){
 			
 			return false;
 			
 		}
 		
-		// Otherwise read command
-		String command = scanInput.next();
-		int index = INITIALIZE_TO_ZERO;
+		// Read the next line
+		String userInput = scanner.nextLine();
 		
-		// Read three user input strings separated by commas, if empty, data is null
-		while(scanInput.hasNext()){
-				
-			userArguments.add(scanInput.next());
+		// Use MyScanner class to break down into seperate arguments
+		myScanner = new MyScanner(userInput, trace);
+		
+		trace.getTraceWriter().println("number of args = " + myScanner.getNumberOfWords());
+		
+		for(int index = INITIALIZE_TO_ZERO; index < myScanner.getNumberOfWords(); index++){
+			
+			trace.getTraceWriter().println("wordArray[" + index + "] = " + myScanner.getWordArray()[index] + "...");
 			
 		}
 		
+		// If there are no arguments return false
+		// TODO: do I need this?
+		if(myScanner.getNumberOfWords() == NO_INPUT){
+			
+			return false;
+			
+		}
+		
+		// Get the user command from MyScanner Class
+		String command = myScanner.getWordArray()[COMMAND];
+		
+		trace.getTraceWriter().println("command = " + command + "....");
+		
 		// Call appropriate method for each command
-		switch (userArguments.get(COMMAND)){
+		switch (command){
 			
 			// Command #1
 			case EXIT:
@@ -119,54 +140,61 @@ public class TicTacToe {
 			// Command #2 
 			case ADD_PLAYER: 
 				
-				if(userArguments.size() != ADD_PLAYER_NUMBER_ARGS){
+				if(myScanner.getNumberOfWords() != ADD_PLAYER_NUMBER_ARGS){
 					
 					System.out.print("Incorrect number of arguments supplied to command.\n");
 					return false;
 
 				}
 				
-				playerManager.addPlayer(new HumanPlayer(userArguments.get(1), userArguments.get(2), userArguments.get(3), scanner));
+				playerManager.addPlayer(new HumanPlayer(myScanner.getWordArray()[1], myScanner.getWordArray()[2], myScanner.getWordArray()[3], scanner, trace));
 				break;
 
 			// Command #3
 			case REMOVE_PLAYER:
 				
-				if(userArguments.size() == NO_ARGUMENTS){
+				if(myScanner.getNumberOfWords() == NO_ARGUMENTS){
 					
 					playerManager.removeAllPlayers();
+					break;
+					
+				} else if(myScanner.getNumberOfWords() == ONE_ARGUMENT){
+					
+					playerManager.removePlayer(myScanner.getWordArray()[1]);
+					break;
 					
 				}
 					
-				playerManager.removePlayer(userArguments.get(1));
-				break;
+				System.out.print("Incorrect number of arguments supplied to command.\n");
+				return false;
+					
 						
 			// Command #4
 			case EDIT_PLAYER:
 				
-				if(userArguments.size() != UPDATE_PLAYER_NUMBER_ARGS){
+				if(myScanner.getNumberOfWords() != UPDATE_PLAYER_NUMBER_ARGS){
 					
 					System.out.print("Incorrect number of arguments supplied to command.\n");
 					return false;
 
 				}
 			
-				playerManager.editPlayer(userArguments.get(1), userArguments.get(2), userArguments.get(3));	
+				playerManager.editPlayer(myScanner.getWordArray()[1], myScanner.getWordArray()[2], myScanner.getWordArray()[3]);	
 				break;
 				
 			// Command #5
 			case RESET_STATS:
 				
 				
-				if(userArguments.size() == RESET_ALL_STATS_NUMBER_ARGS){
+				if(myScanner.getNumberOfWords() == RESET_ALL_STATS_NUMBER_ARGS){
 					
 					playerManager.resetStats();
 					break;
 					
-				}if(userArguments.size() == RESET_STATS_NUMBER_ARGS){
+				}if(myScanner.getNumberOfWords() == RESET_STATS_NUMBER_ARGS){
 					
 					// TODO magic number
-					playerManager.resetStats(userArguments.get(1));
+					playerManager.resetStats(myScanner.getWordArray()[1]);
 					break;
 					
 				} else {
@@ -180,16 +208,16 @@ public class TicTacToe {
 			// Command #6
 			case DISPLAY_PLAYER:
 				
-				if(userArguments.size() == DISPLAY_ALL_PLAYERS_NUMBER_ARGS){
+				if(myScanner.getNumberOfWords() == DISPLAY_ALL_PLAYERS_NUMBER_ARGS){
 					
 					playerManager.displayAllPlayers();
 					break;
 					
 				}
-				if(userArguments.size() == DISPLAY_PLAYER_NUMBER_ARGS){
+				if(myScanner.getNumberOfWords() == DISPLAY_PLAYER_NUMBER_ARGS){
 					
 					// TODO: magic number
-					playerManager.displayPlayer(userArguments.get(1));
+					playerManager.displayPlayer(myScanner.getWordArray()[1]);
 					break;
 					
 				}
@@ -204,21 +232,22 @@ public class TicTacToe {
 				break;
 			
 			// Command #8
+			// TODO test
 			case PLAY_GAME:
 				
-				if(userArguments.size() != PLAY_GAME_NUMBER_ARGS){
+				if(myScanner.getNumberOfWords() != PLAY_GAME_NUMBER_ARGS){
 					
-					//TODO: incorrect number of args
+					System.out.print("Incorrect number of arguments supplied to command.\n");
 					return false;
 					
 				}
 				
-				int playerOneIndex = playerManager.getPlayerArray().indexOf(userArguments.get(1));
-				int playerTwoIndex = playerManager.getPlayerArray().indexOf(userArguments.get(2));
+				int playerOneIndex = playerManager.indexOf(myScanner.getWordArray()[1]);
+				int playerTwoIndex = playerManager.indexOf(myScanner.getWordArray()[2]);
 				
 				if(playerOneIndex == PLAYER_DOES_NOT_EXIST || playerTwoIndex == PLAYER_DOES_NOT_EXIST){
 					
-					//TODO; player does not exist
+					System.out.print("The player does not exist.\n");
 					return false;
 					
 				} 
@@ -228,28 +257,28 @@ public class TicTacToe {
 				
 				if(playerManager.getPlayerArray().get(playerOneIndex) instanceof HumanPlayer){
 					
-					playerOne = new HumanPlayer(playerManager.getPlayerArray().get(playerOneIndex));
+					playerOne = new HumanPlayer(playerManager.getPlayerArray().get(playerOneIndex), trace, scanner);
 					
 				} else {
 					
-					playerOne = new AIPlayer(playerManager.getPlayerArray().get(playerOneIndex));
+					playerOne = new AIPlayer(playerManager.getPlayerArray().get(playerOneIndex), trace);
 					
 				}
 				
 				if(playerManager.getPlayerArray().get(playerTwoIndex) instanceof HumanPlayer){
 					
-					playerTwo = new HumanPlayer(playerManager.getPlayerArray().get(playerTwoIndex));
+					playerTwo = new HumanPlayer(playerManager.getPlayerArray().get(playerTwoIndex), trace, scanner);
 					
 				} else {
 					
-					playerTwo = new AIPlayer(playerManager.getPlayerArray().get(playerTwoIndex));
+					playerTwo = new AIPlayer(playerManager.getPlayerArray().get(playerTwoIndex), trace);
 					
 				}
 						
 				gameManager.playGame(playerOne, playerTwo);
 				
-				playerManager.getPlayerArray().set(playerOneIndex, gameManager.getPlayerOne());
-				playerManager.getPlayerArray().set(playerTwoIndex, gameManager.getPlayerTwo());
+				playerManager.updatePlayer(playerOneIndex, gameManager.getPlayerOne());
+				playerManager.updatePlayer(playerTwoIndex, gameManager.getPlayerTwo());
 				
 
 				
@@ -257,20 +286,23 @@ public class TicTacToe {
 				
 			// Command #9 
 			case ADD_AI_PLAYER: 
+				
 					
-				if(userArguments.size() != ADD_PLAYER_NUMBER_ARGS){
+				if(myScanner.getNumberOfWords() != ADD_PLAYER_NUMBER_ARGS){
 						
 					System.out.print("Incorrect number of arguments supplied to command.\n");
 					return false;
 
 				}
 					
-				playerManager.addPlayer(new AIPlayer(userArguments.get(1), userArguments.get(2), userArguments.get(3)));
+				playerManager.addPlayer(new AIPlayer(myScanner.getWordArray()[1], myScanner.getWordArray()[2], myScanner.getWordArray()[3], trace));
 				break;			
 				
 			default:
+	
+				System.out.print("'" + command + "' is not a valid command.\n");
 				
-				// TODO: Print invalid command
+				trace.getTraceWriter().print("Invalid command '" + myScanner.getWordArray()[COMMAND] + "' not found.\n");
 				return false;
 				
 		}
@@ -281,6 +313,9 @@ public class TicTacToe {
 	
 	// Command #1: exit
 	public void exit(){
+		
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
+		
 		
 		System.out.print("\n");
 		System.exit(NORMAL_TERMINATION);

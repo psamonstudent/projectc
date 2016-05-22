@@ -4,20 +4,35 @@ import java.util.Scanner;
 
 public class HumanPlayer extends Player {
 	
+	public static final int MIN_PLAYER_ENTRY = 0;
+	public static final int MAX_PLAYER_ENTRY = 2;
+	
 	Scanner scanner;
 	
 	// Constructor
-	public HumanPlayer (Player player){
-		super(player);
+	public HumanPlayer (Player player, Trace trace, Scanner scanner, GameBoard gameBoard){
+		super(player, trace, gameBoard);
+		trace.getTraceWriter().println("scanner imported");
+		this.scanner = scanner;
 	}
 	
-	public HumanPlayer(String userName, String familyName, String givenName, Scanner scanner){
-		super(userName, familyName, givenName);
+	public HumanPlayer (Player player, Trace trace, Scanner scanner){
+		super(player, trace);
+		trace.getTraceWriter().println("scanner imported");
 		this.scanner = scanner;
+	}
+	
+	public HumanPlayer(String userName, String familyName, String givenName, Scanner scanner, Trace trace){
+		super(userName, familyName, givenName, trace);
+		this.scanner = scanner;
+		
+		trace.getTraceWriter().println("scanner imported");
 	}
 
 	//@Override
 	public void makeMove() {
+		
+		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
 		
 		boolean invalidEntry = true;
 		
@@ -25,11 +40,13 @@ public class HumanPlayer extends Player {
 		do{
 			
 			// Print players move
-			System.out.print(userName + "'s move:\n");
+			System.out.print(givenName + "'s move:\n");
 			
 			// Read players cell entry
-			move.setRow(scanner.nextInt());  		
-			move.setCol(scanner.nextInt());  
+			trace.getTraceWriter().println("has next = " + scanner.hasNextInt());
+			
+			
+			move = new Move(scanner.nextInt(),scanner.nextInt());
 			
 			// Check for invalid entry
 			// Invalid values/syntax?
@@ -42,6 +59,9 @@ public class HumanPlayer extends Player {
 				System.out.print("Invalid move. You must place at a");
 				System.out.print(" cell within {0,1,2} {0,1,2}.\n");
 				
+			} else if(gameBoard.checkGrid(move.getRow(), move.getCol()) != EMPTY_CELL){
+				
+				invalidEntry = true;
 				
 			} else {
 
@@ -50,6 +70,8 @@ public class HumanPlayer extends Player {
 			}
 			
 		} while (invalidEntry);
+		
+		gameBoard.setGrid(move.getRow(),move.getCol(), symbol);
 		
 	}
 	

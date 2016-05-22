@@ -1,516 +1,150 @@
-test game...
-Trace: TicTacToeTest:testGame:12.
-Trace: TicTacToeTest:addRandomPlayers:24.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayerToAlphabeticArray:256.
-Trace: PlayerManager:addPlayerToTopTenArray:281.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayer:195.
-Trace: PlayerManager:addPlayer:195.
-ALPHABETIC ARRAY:
-       acyzj: 73.33: 26.67    ruvsvyflvsc,rdpsqsmfhkcx, 15, 11,  4
-aefuwabduomj: 30.19: 13.21        wqsuhzo, cjudaeodcix, 53, 16,  7
-     asumhbn: 89.13:  0.00     dbyssdntot,  rdeddzpvjl, 92, 82,  0
-     auyfgzz: 96.59:  0.00       oweqgdch,nyvxisefeacq, 88, 85,  0
-     bfcvxgh:  4.76: 92.86         ddfrza,       yqzmc, 84,  4, 78
-     bfympne: 95.24:  4.76         xenblk, ahgnwmccave, 63, 60,  3
-      bvurom: 46.67: 50.00    fohxyhlzhou,  rdkmskrvbk, 30, 14, 15
-     bxzwncw: 28.13: 37.50    holdkjqluti, xdwfpiwainu, 96, 27, 36
-    cmbefkic: 36.23: 34.78    gprvvbjwwzo,    oibhflhp, 69, 25, 24
-cxabvugsycla: 53.85: 38.46    iasmlwnvkbw,  mscuydqdvk, 13,  7,  5
-    czvbmfix: 30.23:  0.00          mezsr,       xghvq, 43, 13,  0
-     dbemaqo: 70.59: 17.65   mwvscllzzlzg,     pjrsxrn, 17, 12,  3
-dbzhvnuvkwkf: 69.57:  5.43    dkscxekezob, gbnflasxewl, 92, 64,  5
-   dfhmpxlzl: 25.00: 62.50      nxqdqdqnj,       ntili,  8,  2,  5
-      djvoxh: 60.98: 32.93     lyvhajoriy,  xvsnnaqsck, 82, 50, 27
-   dwecjkbay:  1.09: 92.39      yjkhksert,       ilqhk, 92,  1, 85
-     elqaoye: 31.46: 49.44    ephqctudnrd,       urrbd, 89, 28, 44
-    eqojozte: 65.82: 25.32      acfrldlux,    piulbsyj, 79, 52, 20
-   etwebyrah: 44.90: 38.78      nwlpnigto,   yzniopzgt, 49, 22, 19
- exfruibgcue: 87.06:  5.88        waedtyp,   kaawdqpge, 85, 74,  5
-      feicvs:  7.69:  3.08          yxfzg, fnnovwxnakm, 65,  5,  2
-       fnjvi:  0.00: 50.00         jiwrho,     sfdsjjy,  6,  0,  3
-       fodpl: 22.22:  0.00      nuemujjlu,ysmqvckhjxmk,  9,  2,  0
-       goylk: 12.82: 79.49       vjzpqfuw,   lqonujcwl, 39,  5, 31
-       hbqyp: 54.55: 45.45     zloqccwhgg,   rdlquitye, 11,  6,  5
- hegfqdzoske: 48.28: 34.48        gursgmg,  xqwiagquuv, 29, 14, 10
-    hfprsznb: 67.86: 28.57      pfbysryky,       okzpu, 28, 19,  8
-hjkhyzvjblrp: 80.85: 17.02          rvrgv,      gunvfy, 94, 76, 16
-   hrldmxwtf: 87.32:  4.23     rqceugwsal,     vkmzrlk, 71, 62,  3
-      hslgin: 96.97:  3.03        slyvety,   ukyzdaxjh, 33, 32,  1
-   hstpcpuwo: 75.93: 11.11    nsbegzikliq,   zjwfegmiz, 54, 41,  6
-iekknlfuyaei: 57.14: 42.86     onfznnjkpz,  cnnipdottg,  7,  4,  3
- ikcxxihfbfn: 77.78:  0.00          ayhpq,    nrncvrei,  9,  7,  0
- ikgddidvjgs: 56.16: 17.81       kecbdgnx,  pcgboqcqiw, 73, 41, 13
- innstcdnovs: 32.20: 64.41    xqbzbnrolqe, acxlyciprys, 59, 19, 38
- ipxfpgchxkw: 93.02:  1.16        lgkchzk,     xrecvio, 86, 80,  1
-  iwhegdqmgz: 32.22: 13.33         rafvti,   wqxvyyqem, 90, 29, 12
-     jdberer: 50.00:  3.33        jqapsfy,       exsee, 90, 45,  3
-   jecxwwnpu: 57.14: 42.86     gkjhqnadic,      tttxih, 91, 52, 39
-      jihqug: 23.53: 70.59        mhyzwpl,    sqnxpolx, 51, 12, 36
-   jrnrqdtor: 61.96: 26.09   ulhxexaxppjo,     hummozh, 92, 57, 24
-jtbyjyhvscux: 23.86: 28.41   uuouutkhayxe,      rebfpt, 88, 21, 25
-   kmksygewi:100.00:  0.00     elmnoplqbh,      vshiin,  3,  3,  0
-lifkhxmdecco: 23.08: 55.77    cndkgrqljdo,   kragiszbl, 52, 12, 29
-  lijrkagiht: 38.46:  7.69      earddsage,     ovzopcb, 13,  5,  1
- lmhrabxglrx:100.00:  0.00        zdqntgz,     sjnplhy,  4,  4,  0
-    lxahvnlx: 88.46:  9.62    uakvzicohlk,     rruvrha, 52, 46,  5
-  lxlcfczvuw: 61.54: 23.08    fgotefiqezz,    axrxmelf, 13,  8,  3
-      mapymx: 91.67:  5.56       stawiiie,   ahmojrflp, 36, 33,  2
-  mdilgmdpzb: 16.67: 16.67     ilwklddjmy,     iizjtdt, 12,  2,  2
-      mfqrmc:100.00:  0.00      ajazdehis,     lxdfnwi,  1,  1,  0
-      mkpzuf: 20.24: 73.81         lialud,  lizpbcnrag, 84, 17, 62
-     mqpaoqd: 30.43: 37.68       kfewxezx,     rqmpgxq, 69, 21, 26
-    ncgwivkn: 50.00: 50.00       yaplfhke,    zhdkvgic,  2,  1,  1
-    nrmbeyer: 85.71:  1.43      ozhqnmyxm,  mwoipbpqpa, 70, 60,  1
-     nwqyqlh: 64.79: 23.94     gyflaxqjav,     yevhdoa, 71, 46, 17
-   otmzsxvho: 65.31: 34.69          wgyld,  lqfycmbhyr, 49, 32, 17
-    pipfwasu: 61.29: 30.65       oridhgda,     fvqdali, 62, 38, 19
-       plnwx: 80.00:  6.67       spfeylnu, oboizmsyrqt, 75, 60,  5
-       pqcsc: 80.77: 15.38         yuqjbi,klltwmwfyaxb, 26, 21,  4
-    pqxiknkc:  0.00:  0.00      zirnzmhlu,     gldejpm,  0,  0,  0
-  qbxezcerni: 59.38:  6.25         znzxax,      mfevau, 32, 19,  2
-      qfuukv: 10.20: 46.94   nqvyhqxkimlc,   tqgrmvlli, 49,  5, 23
-     qgcohws:100.00:  0.00        pggwwhp,       tqloe,  7,  7,  0
-       qghkj:  0.00:  0.00   ojtiqpydlojl,     cymrpdg,  0,  0,  0
-       qgomx: 32.32: 40.40      egjvwkhew,       nvvxo, 99, 32, 40
-    qihhpwlz: 43.10:  5.17          tdxdw,    itedzini, 58, 25,  3
-  qxuycoyxiv:100.00:  0.00     bsmtptzjoa,      rvvxoc,  6,  6,  0
-      retvco: 57.14:  2.38        mvrbkhn,      ayrckw, 84, 48,  2
-  rfkquiifsg: 62.00: 10.00          bxrow, klwsynmwozk, 50, 31,  5
- rxerogaucxw: 92.31:  5.13     xslipztixo,qmvyxktceytn, 39, 36,  2
-       sgprf: 80.28: 11.27    zcqrmolcjsy, jmnzjiljwto, 71, 57,  8
-smdrygqgfykh: 92.11:  0.00          emxbm,mfgcynarspyl, 76, 70,  0
-      soymrh: 83.78:  8.11    ricfknspxyb,       wmafo, 37, 31,  3
-    sqmqhrdn: 37.50:  0.00        iyexbrb,    liyvhwqk, 40, 15,  0
-    sqpigyxa: 82.72: 17.28       iphfdpuq,    psuuplrb, 81, 67, 14
-  sswbpuplhe: 87.50: 12.50       zwuwylaw,    etaqkmia, 24, 21,  3
-sxtsyexoxhjb: 39.58: 60.42        phcbuyq,    bfhvdfii, 48, 19, 29
-     tcdxoub: 90.48:  4.76    mnzypciosdg,    qzaacrsw, 63, 57,  3
-    tebvduaz: 28.57: 42.86       cvmdlgrh,      vlaepd,  7,  2,  3
-      tmodaj: 63.79: 13.79          rayrv, orjpwsdiwpw, 58, 37,  8
-  ubzwcgijpc: 35.71: 55.71      hqaslfsov,     ifykqnr, 70, 25, 39
-       uofhc: 75.00:  4.17          mmlnx,      xjaczl, 24, 18,  1
-   vynjkwlwr: 98.92:  0.00   eaqmtdzzwndl,      bzdiwu, 93, 92,  0
-  wdnguzcxai: 86.96:  6.52    sjczolclfbq,     xvlwplk, 46, 40,  3
- winregyophi: 29.90:  9.28    kdhwznpttre,yupgwaznybmf, 97, 29,  9
-       wjbqx: 87.37:  5.26        xbxbjhb,  vhxjknospa, 95, 83,  5
- wlerwkivdyq: 27.27: 45.45     rzaxnpsxyp,       swiqr, 11,  3,  5
-    wukgygqy: 31.43: 65.71   tmkakribmndk,       jheny, 35, 11, 23
-  wzhfvtfvlu:100.00:  0.00          edwud,       hgfxq,  6,  6,  0
-       xpfgc: 59.52:  4.76    upndglijidk,wmdxsgvxbnxk, 42, 25,  2
- xqzslmqldhe: 24.44: 56.67    sjhxuwutzdw,     pucqjgj, 90, 22, 51
-       xuygg: 82.22:  2.22          auxyq,  yovmmtwfhp, 45, 37,  1
-  yceuttcvzv: 63.29:  5.06      zvmobkqsp,       cvcyh, 79, 50,  4
-   yhwfottaf: 66.27:  2.41     qaibsyeocv, naaghgvqvea, 83, 55,  2
-     yomkdjv:100.00:  0.00          iutpm,     baagfcc,  3,  3,  0
-       yrcks: 25.00: 33.33      ogbarvzhp,     pciqrqz, 12,  3,  4
- zhbyuzcllbk: 45.90: 11.48          frfon,       rhaxw, 61, 28,  7
- zmdoiohntnf: 47.06: 35.29        mtrjhti,mirbcatzbpjh, 17,  8,  6
-    zylbyato: 50.00: 21.88   pdlamktllzyi,aljqysdiyvdl, 32, 16,  7
-
-TOP TEN ARRAY:
-   kmksygewi:100.00:  0.00     elmnoplqbh,      vshiin,  3,  3,  0
- lmhrabxglrx:100.00:  0.00        zdqntgz,     sjnplhy,  4,  4,  0
-      mfqrmc:100.00:  0.00      ajazdehis,     lxdfnwi,  1,  1,  0
-     qgcohws:100.00:  0.00        pggwwhp,       tqloe,  7,  7,  0
-  qxuycoyxiv:100.00:  0.00     bsmtptzjoa,      rvvxoc,  6,  6,  0
-  wzhfvtfvlu:100.00:  0.00          edwud,       hgfxq,  6,  6,  0
-     yomkdjv:100.00:  0.00          iutpm,     baagfcc,  3,  3,  0
-   vynjkwlwr: 98.92:  0.00   eaqmtdzzwndl,      bzdiwu, 93, 92,  0
-      hslgin: 96.97:  3.03        slyvety,   ukyzdaxjh, 33, 32,  1
-     auyfgzz: 96.59:  0.00       oweqgdch,nyvxisefeacq, 88, 85,  0
-     bfympne: 95.24:  4.76         xenblk, ahgnwmccave, 63, 60,  3
- ipxfpgchxkw: 93.02:  1.16        lgkchzk,     xrecvio, 86, 80,  1
- rxerogaucxw: 92.31:  5.13     xslipztixo,qmvyxktceytn, 39, 36,  2
-smdrygqgfykh: 92.11:  0.00          emxbm,mfgcynarspyl, 76, 70,  0
-      mapymx: 91.67:  5.56       stawiiie,   ahmojrflp, 36, 33,  2
-     tcdxoub: 90.48:  4.76    mnzypciosdg,    qzaacrsw, 63, 57,  3
-     asumhbn: 89.13:  0.00     dbyssdntot,  rdeddzpvjl, 92, 82,  0
-    lxahvnlx: 88.46:  9.62    uakvzicohlk,     rruvrha, 52, 46,  5
-  sswbpuplhe: 87.50: 12.50       zwuwylaw,    etaqkmia, 24, 21,  3
-       wjbqx: 87.37:  5.26        xbxbjhb,  vhxjknospa, 95, 83,  5
-   hrldmxwtf: 87.32:  4.23     rqceugwsal,     vkmzrlk, 71, 62,  3
- exfruibgcue: 87.06:  5.88        waedtyp,   kaawdqpge, 85, 74,  5
-  wdnguzcxai: 86.96:  6.52    sjczolclfbq,     xvlwplk, 46, 40,  3
-    nrmbeyer: 85.71:  1.43      ozhqnmyxm,  mwoipbpqpa, 70, 60,  1
-      soymrh: 83.78:  8.11    ricfknspxyb,       wmafo, 37, 31,  3
-    sqpigyxa: 82.72: 17.28       iphfdpuq,    psuuplrb, 81, 67, 14
-       xuygg: 82.22:  2.22          auxyq,  yovmmtwfhp, 45, 37,  1
-hjkhyzvjblrp: 80.85: 17.02          rvrgv,      gunvfy, 94, 76, 16
-       pqcsc: 80.77: 15.38         yuqjbi,klltwmwfyaxb, 26, 21,  4
-       sgprf: 80.28: 11.27    zcqrmolcjsy, jmnzjiljwto, 71, 57,  8
-       plnwx: 80.00:  6.67       spfeylnu, oboizmsyrqt, 75, 60,  5
- ikcxxihfbfn: 77.78:  0.00          ayhpq,    nrncvrei,  9,  7,  0
-   hstpcpuwo: 75.93: 11.11    nsbegzikliq,   zjwfegmiz, 54, 41,  6
-       uofhc: 75.00:  4.17          mmlnx,      xjaczl, 24, 18,  1
-       acyzj: 73.33: 26.67    ruvsvyflvsc,rdpsqsmfhkcx, 15, 11,  4
-     dbemaqo: 70.59: 17.65   mwvscllzzlzg,     pjrsxrn, 17, 12,  3
-dbzhvnuvkwkf: 69.57:  5.43    dkscxekezob, gbnflasxewl, 92, 64,  5
-    hfprsznb: 67.86: 28.57      pfbysryky,       okzpu, 28, 19,  8
-   yhwfottaf: 66.27:  2.41     qaibsyeocv, naaghgvqvea, 83, 55,  2
-    eqojozte: 65.82: 25.32      acfrldlux,    piulbsyj, 79, 52, 20
-   otmzsxvho: 65.31: 34.69          wgyld,  lqfycmbhyr, 49, 32, 17
-     nwqyqlh: 64.79: 23.94     gyflaxqjav,     yevhdoa, 71, 46, 17
-      tmodaj: 63.79: 13.79          rayrv, orjpwsdiwpw, 58, 37,  8
-  yceuttcvzv: 63.29:  5.06      zvmobkqsp,       cvcyh, 79, 50,  4
-  rfkquiifsg: 62.00: 10.00          bxrow, klwsynmwozk, 50, 31,  5
-   jrnrqdtor: 61.96: 26.09   ulhxexaxppjo,     hummozh, 92, 57, 24
-  lxlcfczvuw: 61.54: 23.08    fgotefiqezz,    axrxmelf, 13,  8,  3
-    pipfwasu: 61.29: 30.65       oridhgda,     fvqdali, 62, 38, 19
-      djvoxh: 60.98: 32.93     lyvhajoriy,  xvsnnaqsck, 82, 50, 27
-       xpfgc: 59.52:  4.76    upndglijidk,wmdxsgvxbnxk, 42, 25,  2
-  qbxezcerni: 59.38:  6.25         znzxax,      mfevau, 32, 19,  2
-iekknlfuyaei: 57.14: 42.86     onfznnjkpz,  cnnipdottg,  7,  4,  3
-   jecxwwnpu: 57.14: 42.86     gkjhqnadic,      tttxih, 91, 52, 39
-      retvco: 57.14:  2.38        mvrbkhn,      ayrckw, 84, 48,  2
- ikgddidvjgs: 56.16: 17.81       kecbdgnx,  pcgboqcqiw, 73, 41, 13
-       hbqyp: 54.55: 45.45     zloqccwhgg,   rdlquitye, 11,  6,  5
-cxabvugsycla: 53.85: 38.46    iasmlwnvkbw,  mscuydqdvk, 13,  7,  5
-    ncgwivkn: 50.00: 50.00       yaplfhke,    zhdkvgic,  2,  1,  1
-    zylbyato: 50.00: 21.88   pdlamktllzyi,aljqysdiyvdl, 32, 16,  7
-     jdberer: 50.00:  3.33        jqapsfy,       exsee, 90, 45,  3
- hegfqdzoske: 48.28: 34.48        gursgmg,  xqwiagquuv, 29, 14, 10
- zmdoiohntnf: 47.06: 35.29        mtrjhti,mirbcatzbpjh, 17,  8,  6
-      bvurom: 46.67: 50.00    fohxyhlzhou,  rdkmskrvbk, 30, 14, 15
- zhbyuzcllbk: 45.90: 11.48          frfon,       rhaxw, 61, 28,  7
-   etwebyrah: 44.90: 38.78      nwlpnigto,   yzniopzgt, 49, 22, 19
-    qihhpwlz: 43.10:  5.17          tdxdw,    itedzini, 58, 25,  3
-sxtsyexoxhjb: 39.58: 60.42        phcbuyq,    bfhvdfii, 48, 19, 29
-  lijrkagiht: 38.46:  7.69      earddsage,     ovzopcb, 13,  5,  1
-    sqmqhrdn: 37.50:  0.00        iyexbrb,    liyvhwqk, 40, 15,  0
-    cmbefkic: 36.23: 34.78    gprvvbjwwzo,    oibhflhp, 69, 25, 24
-  ubzwcgijpc: 35.71: 55.71      hqaslfsov,     ifykqnr, 70, 25, 39
-       qgomx: 32.32: 40.40      egjvwkhew,       nvvxo, 99, 32, 40
-  iwhegdqmgz: 32.22: 13.33         rafvti,   wqxvyyqem, 90, 29, 12
- innstcdnovs: 32.20: 64.41    xqbzbnrolqe, acxlyciprys, 59, 19, 38
-     elqaoye: 31.46: 49.44    ephqctudnrd,       urrbd, 89, 28, 44
-    wukgygqy: 31.43: 65.71   tmkakribmndk,       jheny, 35, 11, 23
-     mqpaoqd: 30.43: 37.68       kfewxezx,     rqmpgxq, 69, 21, 26
-    czvbmfix: 30.23:  0.00          mezsr,       xghvq, 43, 13,  0
-aefuwabduomj: 30.19: 13.21        wqsuhzo, cjudaeodcix, 53, 16,  7
- winregyophi: 29.90:  9.28    kdhwznpttre,yupgwaznybmf, 97, 29,  9
-    tebvduaz: 28.57: 42.86       cvmdlgrh,      vlaepd,  7,  2,  3
-     bxzwncw: 28.13: 37.50    holdkjqluti, xdwfpiwainu, 96, 27, 36
- wlerwkivdyq: 27.27: 45.45     rzaxnpsxyp,       swiqr, 11,  3,  5
-   dfhmpxlzl: 25.00: 62.50      nxqdqdqnj,       ntili,  8,  2,  5
-       yrcks: 25.00: 33.33      ogbarvzhp,     pciqrqz, 12,  3,  4
- xqzslmqldhe: 24.44: 56.67    sjhxuwutzdw,     pucqjgj, 90, 22, 51
-jtbyjyhvscux: 23.86: 28.41   uuouutkhayxe,      rebfpt, 88, 21, 25
-      jihqug: 23.53: 70.59        mhyzwpl,    sqnxpolx, 51, 12, 36
-lifkhxmdecco: 23.08: 55.77    cndkgrqljdo,   kragiszbl, 52, 12, 29
-       fodpl: 22.22:  0.00      nuemujjlu,ysmqvckhjxmk,  9,  2,  0
-      mkpzuf: 20.24: 73.81         lialud,  lizpbcnrag, 84, 17, 62
-  mdilgmdpzb: 16.67: 16.67     ilwklddjmy,     iizjtdt, 12,  2,  2
-       goylk: 12.82: 79.49       vjzpqfuw,   lqonujcwl, 39,  5, 31
-      qfuukv: 10.20: 46.94   nqvyhqxkimlc,   tqgrmvlli, 49,  5, 23
-      feicvs:  7.69:  3.08          yxfzg, fnnovwxnakm, 65,  5,  2
-     bfcvxgh:  4.76: 92.86         ddfrza,       yqzmc, 84,  4, 78
-   dwecjkbay:  1.09: 92.39      yjkhksert,       ilqhk, 92,  1, 85
-       fnjvi:  0.00: 50.00         jiwrho,     sfdsjjy,  6,  0,  3
-    pqxiknkc:  0.00:  0.00      zirnzmhlu,     gldejpm,  0,  0,  0
-       qghkj:  0.00:  0.00   ojtiqpydlojl,     cymrpdg,  0,  0,  0
+Trace: TicTacToeTest: testGame: 12:
+Trace: TicTacToe: processUserInput: 70:
+Trace: TicTacToe: checkCommand: 93:
+Trace: MyScanner: <init>: 18:
+number of args = 4
+wordArray[0] = createplayer...
+wordArray[1] = jdawson...
+wordArray[2] = Dawson...
+wordArray[3] = Jack...
+command = createplayer....
+Invalid command 'createplayer' not found.
+Trace: TicTacToe: checkCommand: 93:
+Trace: MyScanner: <init>: 18:
+number of args = 2
+wordArray[0] = addplayer...
+wordArray[1] = jdawson...
+command = addplayer....
+Trace: TicTacToe: checkCommand: 93:
+Trace: MyScanner: <init>: 18:
+number of args = 4
+wordArray[0] = addplayer...
+wordArray[1] = jdawson...
+wordArray[2] = Dawson...
+wordArray[3] = Jack...
+command = addplayer....
+scanner imported
+Trace: PlayerManager: addPlayer: 140:
+Trace: PlayerManager: addPlayerToPlayerArray: 430:
+Trace: TicTacToe: checkCommand: 93:
+Trace: MyScanner: <init>: 18:
+number of args = 4
+wordArray[0] = addaiplayer...
+wordArray[1] = alphaTicTacToe...
+wordArray[2] = TicTacToe...
+wordArray[3] = Alpha...
+command = addaiplayer....
+Trace: PlayerManager: addPlayer: 140:
+Trace: PlayerManager: addPlayerToPlayerArray: 430:
+Trace: TicTacToe: checkCommand: 93:
+Trace: MyScanner: <init>: 18:
+number of args = 2
+wordArray[0] = displayplayer...
+wordArray[1] = alphaTicTacToe...
+command = displayplayer....
+Trace: PlayerManager: displayPlayer: 306:
+userName = alphaTicTacToe
+Trace: PlayerManager: indexOf: 468:
+Trace: Player: equals: 180:
+size of string = 14
+alphaTicTacToe....
+player = alphaTicTacToe, string argument = alphaTicTacToe, result = true
+index = 0
+Trace: TicTacToe: checkCommand: 93:
+Trace: MyScanner: <init>: 18:
+number of args = 1
+wordArray[0] = displayplayer...
+command = displayplayer....
+Trace: PlayerManager: displayAllPlayers: 329:
+Trace: TicTacToe: checkCommand: 93:
+Trace: MyScanner: <init>: 18:
+number of args = 1
+wordArray[0] = rankings...
+command = rankings....
+Trace: PlayerManager: displayRanking: 344:
+player.getWinningRatio() = 0.0, last player = null
+player.getWinningRatio() = 0.0
+player.getWinningRatio() = 0.0, last player = null
+player.getWinningRatio() = 0.0
+player.getWinningRatio() = 0.0
+Trace: TicTacToe: checkCommand: 93:
+Trace: MyScanner: <init>: 18:
+number of args = 3
+wordArray[0] = playgame...
+wordArray[1] = jdawson...
+wordArray[2] = alphaTicTacToe...
+command = playgame....
+Trace: PlayerManager: indexOf: 468:
+Trace: Player: equals: 180:
+size of string = 7
+jdawson....
+player = alphaTicTacToe, string argument = jdawson, result = false
+Trace: Player: equals: 180:
+size of string = 7
+jdawson....
+player = jdawson, string argument = jdawson, result = true
+Trace: PlayerManager: indexOf: 468:
+Trace: Player: equals: 180:
+size of string = 14
+alphaTicTacToe....
+player = alphaTicTacToe, string argument = alphaTicTacToe, result = true
+scanner imported
+Trace: GameManager: playGame: 64:
+scanner imported
+Trace: GameManager: loopThroughGame: 130:
+number of moves = 0
+playerNumber = 0
+player is = jdawson
+Trace: HumanPlayer: makeMove: 35:
+has next = true
+Trace: GameManager: getGameState: 167:
+number of moves = 1
+playerNumber = 1
+player is = alphaTicTacToe
+Trace: AIPlayer: makeMove: 20:
+Trace: GameManager: getGameState: 167:
+number of moves = 2
+playerNumber = 0
+player is = jdawson
+Trace: HumanPlayer: makeMove: 35:
+has next = true
+Trace: GameManager: getGameState: 167:
+number of moves = 3
+playerNumber = 1
+player is = alphaTicTacToe
+Trace: AIPlayer: makeMove: 20:
+Trace: GameManager: getGameState: 167:
+number of moves = 4
+playerNumber = 0
+player is = jdawson
+Trace: HumanPlayer: makeMove: 35:
+has next = true
+Trace: GameManager: getGameState: 167:
+Trace: GameManager: checkWin: 197:
+Trace: GameManager: updatePlayer: 290:
+Trace: GameManager: updatePlayer: 290:
+playerOne =      jdawson:100.00:  0.00         Dawson,        Jack,  1,  1,  0
+playerOne = alphaTicTacToe:  0.00:  0.00      TicTacToe,       Alpha,  1,  0,  0
+scanner imported
+Trace: TicTacToe: checkCommand: 93:
+Trace: MyScanner: <init>: 18:
+number of args = 1
+wordArray[0] = ...
+command = ....
+Invalid command '' not found.
+Trace: TicTacToe: checkCommand: 93:
+Trace: MyScanner: <init>: 18:
+number of args = 1
+wordArray[0] = rankings...
+command = rankings....
+Trace: PlayerManager: displayRanking: 344:
+player.getWinningRatio() = 0.0, last player = null
+player.getWinningRatio() = 0.0
+player.getWinningRatio() = 100.0, last player = null
+player.getWinningRatio() = 100.0
+Trace: TicTacToe: checkCommand: 93:
+Trace: MyScanner: <init>: 18:
+number of args = 1
+wordArray[0] = exit...
+command = exit....
+Trace: TicTacToe: exit: 317:
