@@ -47,6 +47,7 @@ public class HumanPlayer extends Player {
 			
 			
 			move = new Move(scanner.nextInt(),scanner.nextInt());
+			scanner.nextLine();
 			
 			// Check for invalid entry
 			// Invalid values/syntax?
