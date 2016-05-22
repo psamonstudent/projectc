@@ -13,8 +13,8 @@ public class AIPlayer extends Player {
 		super(userName, familyName, givenName, trace);
 	}
 
-	//@Override
-	public void makeMove() {
+	@Override
+	public Move makeMove(char[][] gameBoard) {
 
 		
 		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
@@ -28,12 +28,11 @@ public class AIPlayer extends Player {
 		
 		for(int index = INITIALIZE_TO_ZERO; index < NUMBER_OF_CELLS; index++){
 			
-			move = new Move(row,col);
 			
-			if(gameBoard.checkGrid(move.getRow(), move.getCol()) == EMPTY_CELL){
+			if(gameBoard[row][col] == EMPTY_CELL){
 				
-				gameBoard.setGrid(move.getRow(), move.getCol(), symbol);
-				return;
+				move = new Move(row,col);
+				return move;
 				
 			}
 			
@@ -47,6 +46,9 @@ public class AIPlayer extends Player {
 			col++;
 			
 		}
+		
+		// TODO:
+		return null;
 		
 	}
 	

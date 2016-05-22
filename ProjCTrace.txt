@@ -45,7 +45,7 @@ command = displayplayer....
 Trace: PlayerManager: displayPlayer: 306:
 userName = alphaTicTacToe
 Trace: PlayerManager: indexOf: 468:
-Trace: Player: equals: 180:
+Trace: Player: equals: 197:
 size of string = 14
 alphaTicTacToe....
 player = alphaTicTacToe, string argument = alphaTicTacToe, result = true
@@ -75,16 +75,16 @@ wordArray[1] = jdawson...
 wordArray[2] = alphaTicTacToe...
 command = playgame....
 Trace: PlayerManager: indexOf: 468:
-Trace: Player: equals: 180:
+Trace: Player: equals: 197:
 size of string = 7
 jdawson....
 player = alphaTicTacToe, string argument = jdawson, result = false
-Trace: Player: equals: 180:
+Trace: Player: equals: 197:
 size of string = 7
 jdawson....
 player = jdawson, string argument = jdawson, result = true
 Trace: PlayerManager: indexOf: 468:
-Trace: Player: equals: 180:
+Trace: Player: equals: 197:
 size of string = 14
 alphaTicTacToe....
 player = alphaTicTacToe, string argument = alphaTicTacToe, result = true
@@ -97,32 +97,32 @@ playerNumber = 0
 player is = jdawson
 Trace: HumanPlayer: makeMove: 35:
 has next = true
-Trace: GameManager: getGameState: 167:
+Trace: GameManager: getGameState: 168:
 number of moves = 1
 playerNumber = 1
 player is = alphaTicTacToe
 Trace: AIPlayer: makeMove: 20:
-Trace: GameManager: getGameState: 167:
+Trace: GameManager: getGameState: 168:
 number of moves = 2
 playerNumber = 0
 player is = jdawson
 Trace: HumanPlayer: makeMove: 35:
 has next = true
-Trace: GameManager: getGameState: 167:
+Trace: GameManager: getGameState: 168:
 number of moves = 3
 playerNumber = 1
 player is = alphaTicTacToe
 Trace: AIPlayer: makeMove: 20:
-Trace: GameManager: getGameState: 167:
+Trace: GameManager: getGameState: 168:
 number of moves = 4
 playerNumber = 0
 player is = jdawson
 Trace: HumanPlayer: makeMove: 35:
 has next = true
-Trace: GameManager: getGameState: 167:
-Trace: GameManager: checkWin: 197:
-Trace: GameManager: updatePlayer: 290:
-Trace: GameManager: updatePlayer: 290:
+Trace: GameManager: getGameState: 168:
+Trace: GameManager: checkWin: 198:
+Trace: GameManager: updatePlayer: 291:
+Trace: GameManager: updatePlayer: 291:
 playerOne =      jdawson:100.00:  0.00         Dawson,        Jack,  1,  1,  0
 playerOne = alphaTicTacToe:  0.00:  0.00      TicTacToe,       Alpha,  1,  0,  0
 scanner imported

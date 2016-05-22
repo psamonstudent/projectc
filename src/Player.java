@@ -10,6 +10,8 @@ public abstract class Player {
 	protected static final char EMPTY_CELL = ' ';
 	private static final String INITIALIZE_TO_NULL = null;
 	protected static final int NUMBER_OF_CELLS = 9;
+	protected static final char PLAYER_ONE_SYMBOL = 'O';
+	protected static final char PLAYER_TWO_SYMBOL = 'X';
 	
 	
 	// Instance variables
@@ -27,6 +29,8 @@ public abstract class Player {
 	protected Move move;
 	protected Trace trace;
 	protected GameBoard gameBoard;
+	
+	// 
 	
 	// Copy constructor #1
 	public Player(Player player, Trace trace, GameBoard gameBoard) {
@@ -66,6 +70,19 @@ public abstract class Player {
 		gamesDrawn = INITIALIZE_TO_ZERO;
 		updateRatios();
 		this.trace = trace;
+		
+	}
+	
+	// No argument constructor
+	public Player() {
+		
+		userName = INITIALIZE_TO_NULL;
+		familyName = INITIALIZE_TO_NULL;
+		givenName = INITIALIZE_TO_NULL;
+		gamesPlayed = INITIALIZE_TO_ZERO;
+		gamesWon = INITIALIZE_TO_ZERO;
+		gamesDrawn = INITIALIZE_TO_ZERO;
+		updateRatios();
 		
 	}
 	
@@ -217,6 +234,7 @@ public abstract class Player {
 	}
 	
 	// Make move method
-	public abstract void makeMove();
+	public abstract Move makeMove(char[][] gameBoard);
+
 	
 }

@@ -18,15 +18,21 @@ public class GameBoard {
 		
 	}
 	
+	public char[][] getGrid(){
+		
+		return grid;
+		
+	}
+	
 	public char checkGrid(int row, int col){
 		
 		return grid[row][col];
 		
 	}
 	
-	public void setGrid(int row, int col, char symbol){
+	public void setGrid(Move move, char symbol){
 		
-		grid[row][col] = symbol;
+		grid[move.getRow()][move.getCol()] = symbol;
 		
 	}
 	

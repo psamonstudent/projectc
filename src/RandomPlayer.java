@@ -53,11 +53,11 @@ public class RandomPlayer extends Player{
 		return (int) (min + Math.floor(Math.random() * (max - min + 1)));
 		
 	}
-	
+
 	@Override
-	public void makeMove() {
+	public Move makeMove(char[][] gameBoard) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 	
 	

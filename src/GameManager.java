@@ -144,7 +144,8 @@ public class GameManager {
 			trace.getTraceWriter().println("playerNumber = " + playerNumber);
 			trace.getTraceWriter().println("player is = " + player[playerNumber].getUserName());
 			
-			player[playerNumber].makeMove();
+			Move successful = player[playerNumber].makeMove(gameBoard.getGrid());
+			gameBoard.setGrid(successful, player[playerNumber].getSymbol());
 			
 			// Print grid
 			gameBoard.printGrid();
