@@ -1,144 +1,17 @@
+Trace: PlayerManager: recoverStateFromFile: 113:
+number of players = 0
 Trace: TicTacToeTest: testGame: 12:
 Trace: TicTacToe: processUserInput: 70:
 Trace: TicTacToe: checkCommand: 93:
 Trace: MyScanner: <init>: 18:
-number of args = 4
-wordArray[0] = createplayer...
-wordArray[1] = jdawson...
-wordArray[2] = Dawson...
-wordArray[3] = Jack...
-command = createplayer....
-Invalid command 'createplayer' not found.
-Trace: TicTacToe: checkCommand: 93:
-Trace: MyScanner: <init>: 18:
 number of args = 2
 wordArray[0] = addplayer...
-wordArray[1] = jdawson...
+wordArray[1] = fish...
 command = addplayer....
-Trace: TicTacToe: checkCommand: 93:
-Trace: MyScanner: <init>: 18:
-number of args = 4
-wordArray[0] = addplayer...
-wordArray[1] = jdawson...
-wordArray[2] = Dawson...
-wordArray[3] = Jack...
-command = addplayer....
-scanner imported
-Trace: PlayerManager: addPlayer: 140:
-Trace: PlayerManager: addPlayerToPlayerArray: 430:
-Trace: TicTacToe: checkCommand: 93:
-Trace: MyScanner: <init>: 18:
-number of args = 4
-wordArray[0] = addaiplayer...
-wordArray[1] = alphaTicTacToe...
-wordArray[2] = TicTacToe...
-wordArray[3] = Alpha...
-command = addaiplayer....
-Trace: PlayerManager: addPlayer: 140:
-Trace: PlayerManager: addPlayerToPlayerArray: 430:
-Trace: TicTacToe: checkCommand: 93:
-Trace: MyScanner: <init>: 18:
-number of args = 2
-wordArray[0] = displayplayer...
-wordArray[1] = alphaTicTacToe...
-command = displayplayer....
-Trace: PlayerManager: displayPlayer: 306:
-userName = alphaTicTacToe
-Trace: PlayerManager: indexOf: 468:
-Trace: Player: equals: 197:
-size of string = 14
-alphaTicTacToe....
-player = alphaTicTacToe, string argument = alphaTicTacToe, result = true
-index = 0
-Trace: TicTacToe: checkCommand: 93:
-Trace: MyScanner: <init>: 18:
-number of args = 1
-wordArray[0] = displayplayer...
-command = displayplayer....
-Trace: PlayerManager: displayAllPlayers: 329:
-Trace: TicTacToe: checkCommand: 93:
-Trace: MyScanner: <init>: 18:
-number of args = 1
-wordArray[0] = rankings...
-command = rankings....
-Trace: PlayerManager: displayRanking: 344:
-player.getWinningRatio() = 0.0, last player = null
-player.getWinningRatio() = 0.0
-player.getWinningRatio() = 0.0, last player = null
-player.getWinningRatio() = 0.0
-player.getWinningRatio() = 0.0
-Trace: TicTacToe: checkCommand: 93:
-Trace: MyScanner: <init>: 18:
-number of args = 3
-wordArray[0] = playgame...
-wordArray[1] = jdawson...
-wordArray[2] = alphaTicTacToe...
-command = playgame....
-Trace: PlayerManager: indexOf: 468:
-Trace: Player: equals: 197:
-size of string = 7
-jdawson....
-player = alphaTicTacToe, string argument = jdawson, result = false
-Trace: Player: equals: 197:
-size of string = 7
-jdawson....
-player = jdawson, string argument = jdawson, result = true
-Trace: PlayerManager: indexOf: 468:
-Trace: Player: equals: 197:
-size of string = 14
-alphaTicTacToe....
-player = alphaTicTacToe, string argument = alphaTicTacToe, result = true
-scanner imported
-Trace: GameManager: playGame: 64:
-scanner imported
-Trace: GameManager: loopThroughGame: 130:
-number of moves = 0
-playerNumber = 0
-player is = jdawson
-Trace: HumanPlayer: makeMove: 35:
-has next = true
-Trace: GameManager: getGameState: 168:
-number of moves = 1
-playerNumber = 1
-player is = alphaTicTacToe
-Trace: AIPlayer: makeMove: 20:
-Trace: GameManager: getGameState: 168:
-number of moves = 2
-playerNumber = 0
-player is = jdawson
-Trace: HumanPlayer: makeMove: 35:
-has next = true
-Trace: GameManager: getGameState: 168:
-number of moves = 3
-playerNumber = 1
-player is = alphaTicTacToe
-Trace: AIPlayer: makeMove: 20:
-Trace: GameManager: getGameState: 168:
-number of moves = 4
-playerNumber = 0
-player is = jdawson
-Trace: HumanPlayer: makeMove: 35:
-has next = true
-Trace: GameManager: getGameState: 168:
-Trace: GameManager: checkWin: 198:
-Trace: GameManager: updatePlayer: 291:
-Trace: GameManager: updatePlayer: 291:
-playerOne =      jdawson:100.00:  0.00         Dawson,        Jack,  1,  1,  0
-playerOne = alphaTicTacToe:  0.00:  0.00      TicTacToe,       Alpha,  1,  0,  0
-scanner imported
-Trace: TicTacToe: checkCommand: 93:
-Trace: MyScanner: <init>: 18:
-number of args = 1
-wordArray[0] = rankings...
-command = rankings....
-Trace: PlayerManager: displayRanking: 344:
-player.getWinningRatio() = 0.0, last player = null
-player.getWinningRatio() = 0.0
-player.getWinningRatio() = 100.0, last player = null
-player.getWinningRatio() = 100.0
 Trace: TicTacToe: checkCommand: 93:
 Trace: MyScanner: <init>: 18:
 number of args = 1
 wordArray[0] = exit...
 command = exit....
 Trace: TicTacToe: exit: 317:
+Trace: PlayerManager: saveStateToFile: 57:

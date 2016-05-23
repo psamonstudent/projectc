@@ -24,6 +24,7 @@ public abstract class Player {
 	protected char symbol;
 	private float winningRatio;
 	private float drawingRatio;
+	protected boolean ai;
 	
 	// Create move object
 	protected Move move;
@@ -84,6 +85,16 @@ public abstract class Player {
 		gamesDrawn = INITIALIZE_TO_ZERO;
 		updateRatios();
 		
+	}
+	
+	public Player(String userName, String familyName, String givenName, int gamesPlayed, int gamesWon, int gamesDrawn){
+		this.userName = userName;
+		this.familyName = familyName;
+		this.givenName = givenName;
+		this.gamesPlayed = gamesPlayed;
+		this.gamesWon = gamesWon;
+		this.gamesDrawn = gamesDrawn;
+		updateRatios();
 	}
 	
 	// No argument constructor
@@ -160,6 +171,12 @@ public abstract class Player {
 	}
 	public void setMove(Move move){
 		this.move = move;
+	}
+	public boolean getAi(){
+		return this.ai;
+	}
+	public void setAi(boolean ai){
+		this.ai = ai;
 	}
 	
 	

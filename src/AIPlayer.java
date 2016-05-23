@@ -3,14 +3,22 @@ public class AIPlayer extends Player {
 
 	public AIPlayer(Player player, Trace trace, GameBoard gameBoard) {
 		super(player, trace, gameBoard);
+		this.ai = true;
 	}
 	
 	public AIPlayer(Player player, Trace trace) {
 		super(player, trace);
+		this.ai = true;
 	}
 	
 	public AIPlayer(String userName, String familyName, String givenName, Trace trace){
 		super(userName, familyName, givenName, trace);
+		this.ai = true;
+	}
+	
+	public AIPlayer(String userName, String familyName, String givenName, int gamesPlayed, int gamesWon, int gamesDrawn){
+		super(userName, familyName, givenName, gamesPlayed, gamesWon, gamesDrawn);
+		this.ai = true;
 	}
 
 	@Override

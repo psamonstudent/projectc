@@ -1,4 +1,6 @@
 import java.io.FileInputStream;
+
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
@@ -28,22 +30,24 @@ public class PlayerManager {
 	private List<Player> playerArray = new ArrayList<Player>();
 	
 	// saved state file name
-	String saveFile = "saveFile";
+	String fileName = "players.dat";
+	File file;
 	
 	// Constructor
 	public PlayerManager(Scanner scanner,Trace trace) {
 		
 		this.trace = trace;
 		this.scanner = scanner;
+		recoverStateFromFile();
 		
 	}
 	
 	// Accessors & Mutators
 	public List<Player> getPlayerArray(){
-		return playerArray;
+		return new ArrayList<Player>(playerArray);
 	}
 	public void setPlayerArray(List<Player> playerArray){
-		this.playerArray = playerArray;
+		this.playerArray = new ArrayList<Player>(playerArray);
 	}
 
 	
@@ -52,11 +56,21 @@ public class PlayerManager {
 		
 		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
 		
+		if(playerArray == null){
+			
+			// trace
+			System.out.println("playerArray = null, do not create file");
+			return;
+			
+		}
+		
 		// TODO: test
 		try {
 			
+			file = new File(fileName);
+			
 			// Create new output stream
-			ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(saveFile));
+			ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(file));
 
 			// Write number of playerArray objects to file
 			outputStream.writeInt(playerArray.size());
@@ -64,7 +78,13 @@ public class PlayerManager {
 			// write each player from alphabetic array to file
 			for(int index = INITIALIZE_TO_ZERO; index < playerArray.size(); index++){
 				
-				outputStream.writeObject(playerArray.get(index));
+				outputStream.writeBoolean(playerArray.get(index).getAi());
+				outputStream.writeUTF(playerArray.get(index).getUserName());
+				outputStream.writeUTF(playerArray.get(index).getFamilyName());
+				outputStream.writeUTF(playerArray.get(index).getGivenName());
+				outputStream.writeInt(playerArray.get(index).getGamesPlayed());
+				outputStream.writeInt(playerArray.get(index).getGamesWon());
+				outputStream.writeInt(playerArray.get(index).getGamesDrawn());
 				
 			}
 			
@@ -95,29 +115,56 @@ public class PlayerManager {
 		//TODO: test
 		try {
 			
+			file = new File(fileName);
+			
+			if(!file.exists()){
+				
+				// trace
+				System.out.println("File does not exist no data to read.");
+				return;
+				
+			}
+			
 			// Create new input stream
-			ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(saveFile));
+			ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file));
 			
 			// Get number of alphabetic array objects
 			int playerArraySize = inputStream.readInt();
 			
+			trace.getTraceWriter().println("number of players = " + playerArraySize);
+			
 			// Read each object from file 
 			for(int index = INITIALIZE_TO_ZERO; index < playerArraySize; index++){
 				
-				try {
+				if(inputStream.readBoolean()){
 					
-					playerArray.add((Player) inputStream.readObject());
+					String userName = inputStream.readUTF();
+					String familyName = inputStream.readUTF();
+					String givenName = inputStream.readUTF();
+					int gamesPlayed = inputStream.readInt();
+					int gamesWon = inputStream.readInt();
+					int gamesDrawn = inputStream.readInt();
 					
-				} catch (ClassNotFoundException e) {
+					playerArray.add(new AIPlayer(userName, familyName, givenName, gamesPlayed, gamesWon, gamesDrawn));
 					
-					// TODO Auto-generated catch block
+				} else {
 					
-					e.printStackTrace();
+					String userName = inputStream.readUTF();
+					String familyName = inputStream.readUTF();
+					String givenName = inputStream.readUTF();
+					int gamesPlayed = inputStream.readInt();
+					int gamesWon = inputStream.readInt();
+					int gamesDrawn = inputStream.readInt();
+					
+					playerArray.add(new HumanPlayer(userName, familyName, givenName, gamesPlayed, gamesWon, gamesDrawn));
+					
 				}
-				
 			}
 			
 			inputStream.close();
+			
+			file.delete();
+			
 			
 		} catch (FileNotFoundException e) {
 			

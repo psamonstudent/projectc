@@ -11,16 +11,18 @@ public class TicTacToeTest extends TicTacToe {
 		
 		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
 		
-		//addRandomPlayers(97);		
+		//addRandomPlayers(97);	
 		
-		//printPlayers();
 		
 		run();
 		
+		//printPlayers();
 		
 		
 		
+		//
 		
+
 	}
 	
 	public void addRandomPlayers(int numberOfPlayers){

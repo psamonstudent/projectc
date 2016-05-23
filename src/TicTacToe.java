@@ -317,6 +317,7 @@ public class TicTacToe {
 		trace.traceToFile(Thread.currentThread().getStackTrace()[1].getClassName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Thread.currentThread().getStackTrace()[1].getLineNumber());
 		
 		
+		playerManager.saveStateToFile();
 		System.out.print("\n");
 		System.exit(NORMAL_TERMINATION);
 

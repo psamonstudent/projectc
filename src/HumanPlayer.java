@@ -12,22 +12,27 @@ public class HumanPlayer extends Player {
 	// Constructor
 	public HumanPlayer (Player player, Trace trace, Scanner scanner, GameBoard gameBoard){
 		super(player, trace, gameBoard);
-		trace.getTraceWriter().println("scanner imported");
 		this.scanner = scanner;
+		this.ai = false;
 	}
 	
 	public HumanPlayer (Player player, Trace trace, Scanner scanner){
 		super(player, trace);
-		trace.getTraceWriter().println("scanner imported");
 		this.scanner = scanner;
+		this.ai = false;
 	}
 	
 	public HumanPlayer(String userName, String familyName, String givenName, Scanner scanner, Trace trace){
 		super(userName, familyName, givenName, trace);
 		this.scanner = scanner;
-		
-		trace.getTraceWriter().println("scanner imported");
+		this.ai = false;
 	}
+	
+	public HumanPlayer(String userName, String familyName, String givenName, int gamesPlayed, int gamesWon, int gamesDrawn){
+		super(userName, familyName, givenName, gamesPlayed, gamesWon, gamesDrawn);
+		this.ai = false;
+	}
+	
 
 	@Override
 	public Move makeMove(char[][] gameBoard) {
